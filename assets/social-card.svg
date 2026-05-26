@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">AI Capability Commons launch card</title>
+  <desc id="desc">A modern launch card for AI Capability Commons.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#a0b5eb"/>
+      <stop offset="1" stop-color="#a7fccd"/>
+    </linearGradient>
+    <linearGradient id="sunset" x1="0" x2="1" y1="0" y2="1">
+      <stop offset=".07" stop-color="#ff9473" stop-opacity=".8"/>
+      <stop offset=".84" stop-color="#a0b5eb" stop-opacity=".8"/>
+    </linearGradient>
+    <style>
+      .paper{fill:#f6f3f1}.ink{fill:#000}.muted{fill:#4e4d4d}.line{stroke:#242424;stroke-width:2}.mono{font-family:"IBM Plex Mono",Menlo,monospace;letter-spacing:0}.serif{font-family:Georgia,serif;letter-spacing:0}
+    </style>
+  </defs>
+  <rect width="1200" height="630" class="paper"/>
+  <circle cx="940" cy="120" r="210" fill="url(#sky)" opacity=".34"/>
+  <rect x="64" y="64" width="1072" height="502" rx="44" fill="#f6f3f1" stroke="#242424" stroke-width="2"/>
+  <text x="112" y="132" class="mono ink" font-size="24">AI CAPABILITY COMMONS</text>
+  <text x="112" y="278" class="serif ink" font-size="92">Here is your</text>
+  <text x="112" y="388" class="serif ink" font-size="92">AI program.</text>
+  <text x="116" y="462" class="mono muted" font-size="30">12 weeks / community-run / portfolio proof</text>
+  <g transform="translate(818 320)">
+    <rect width="210" height="82" rx="41" fill="#242424"/>
+    <text x="45" y="52" class="mono" fill="#f6f3f1" font-size="24">Start now</text>
+  </g>
+  <g transform="translate(830 114)">
+    <rect width="190" height="190" rx="40" fill="url(#sunset)" opacity=".82"/>
+    <circle cx="95" cy="95" r="42" fill="none" stroke="#000" stroke-width="2"/>
+    <path d="M72 98l17 17 34-46" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

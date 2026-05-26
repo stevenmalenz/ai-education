@@ -1,0 +1,7 @@
+"dimension","emerging_1","capable_3","strong_5"
+"problem_definition","Vague task","Clear user and constraints","Specific user need, baseline, and risk context"
+"ai_use","Hidden or generic","Named and appropriate","Precise, limited, and documented"
+"verification","Little checking","Claims checked","Systematic, sourced, edge-tested"
+"human_judgment","Unclear","Approval points named","Do-not-automate and escalation clear"
+"impact_evidence","Anecdotal","Before/after measure","Evidence plus stakeholder review"
+"communication","Hard to explain","Clear demo","Honest, concise, role-relevant"

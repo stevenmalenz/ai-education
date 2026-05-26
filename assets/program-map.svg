@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">AI Capability Commons program map</title>
+  <desc id="desc">A softly lit control-panel diagram showing the cohort moving from readiness to guided practice to portfolio proof.</desc>
+  <defs>
+    <linearGradient id="wash" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#a0b5eb"/>
+      <stop offset="1" stop-color="#a7fccd"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ff9473" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#a0b5eb" stop-opacity=".8"/>
+    </linearGradient>
+    <style>
+      .paper{fill:#f6f3f1}.ink{fill:#000}.muted{fill:#4e4d4d}.line{stroke:#242424;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.soft{fill:#cfdaf5;opacity:.52}.panel{fill:#f6f3f1;stroke:#242424;stroke-width:1.5}.mono{font-family:"IBM Plex Mono",Menlo,monospace;font-size:17px;letter-spacing:0}.small{font-family:"IBM Plex Mono",Menlo,monospace;font-size:13px;letter-spacing:0}.serif{font-family:Georgia,serif;font-size:36px;letter-spacing:0}
+    </style>
+  </defs>
+  <rect width="960" height="620" rx="44" class="paper"/>
+  <circle cx="760" cy="120" r="150" fill="url(#wash)" opacity=".28"/>
+  <path d="M70 100h820v420H70z" rx="36" class="panel"/>
+  <path d="M70 178h820" class="line"/>
+  <text x="112" y="148" class="serif ink">12-week AI capability cohort</text>
+  <text x="112" y="205" class="small muted">cohort operating system / local evidence loop / apprenticeship handoff</text>
+  <g transform="translate(112 256)">
+    <rect width="190" height="150" rx="34" fill="#cfdaf5" opacity=".55" stroke="#242424" stroke-width="1.5"/>
+    <circle cx="48" cy="48" r="19" fill="url(#warm)"/>
+    <text x="80" y="53" class="mono ink">Readiness</text>
+    <text x="32" y="93" class="small muted">access, trust,</text>
+    <text x="32" y="116" class="small muted">baseline, norms</text>
+  </g>
+  <path d="M324 331h86" class="line"/>
+  <path d="M397 318l14 13-14 13" fill="none" class="line"/>
+  <g transform="translate(430 256)">
+    <rect width="190" height="150" rx="34" fill="#f6f3f1" stroke="#242424" stroke-width="1.5"/>
+    <circle cx="48" cy="48" r="19" fill="url(#wash)"/>
+    <text x="80" y="53" class="mono ink">Practice</text>
+    <text x="32" y="93" class="small muted">guided tools,</text>
+    <text x="32" y="116" class="small muted">source checks</text>
+  </g>
+  <path d="M642 331h86" class="line"/>
+  <path d="M715 318l14 13-14 13" fill="none" class="line"/>
+  <g transform="translate(748 256)">
+    <rect width="104" height="150" rx="34" fill="#cfdaf5" opacity=".55" stroke="#242424" stroke-width="1.5"/>
+    <circle cx="52" cy="48" r="19" fill="#242424"/>
+    <text x="36" y="53" class="small" fill="#f6f3f1">03</text>
+    <text x="30" y="93" class="small muted">portfolio</text>
+    <text x="30" y="116" class="small muted">proof</text>
+  </g>
+  <g transform="translate(112 448)">
+    <rect width="154" height="36" rx="18" fill="none" stroke="#242424" stroke-width="1.5"/>
+    <text x="28" y="24" class="small ink">learner agency</text>
+    <rect x="176" width="154" height="36" rx="18" fill="none" stroke="#242424" stroke-width="1.5"/>
+    <text x="200" y="24" class="small ink">real workflow</text>
+    <rect x="352" width="154" height="36" rx="18" fill="none" stroke="#242424" stroke-width="1.5"/>
+    <text x="381" y="24" class="small ink">human review</text>
+    <rect x="528" width="154" height="36" rx="18" fill="none" stroke="#242424" stroke-width="1.5"/>
+    <text x="557" y="24" class="small ink">local report</text>
+  </g>
+</svg>

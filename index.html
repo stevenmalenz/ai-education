@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Capability Commons — community AI program</title>
+    <meta name="description" content="A proven, practical 12-week AI capability program for schools, companies, and communities.">
+
+    <link rel="stylesheet" href="claude.css">
+    
+  </head>
+  <body>
+    <!-- ===================== SVG defs (reusable) ===================== -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <!-- Petal logo gradients -->
+        <linearGradient id="petal-amber" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#d88fb7" stop-opacity="0.95"></stop>
+          <stop offset="100%" stop-color="#dfca8c" stop-opacity="0.95"></stop>
+        </linearGradient>
+        <linearGradient id="petal-violet" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#efd5ff" stop-opacity="0.95"></stop>
+          <stop offset="100%" stop-color="#b990f0" stop-opacity="0.95"></stop>
+        </linearGradient>
+        <linearGradient id="petal-mint" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#b990f0"></stop>
+          <stop offset="100%" stop-color="#a8dbc9"></stop>
+        </linearGradient>
+        <linearGradient id="petal-wash" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#e8defa"></stop>
+          <stop offset="100%" stop-color="#ffffff"></stop>
+        </linearGradient>
+
+        <!-- Reusable petal logo symbol -->
+        <symbol id="petal-logo" viewBox="0 0 64 64">
+          <g transform="translate(32 32)">
+            <ellipse cx="0" cy="-12" rx="9" ry="14" fill="url(#petal-amber)" stroke="#000" stroke-width="1"></ellipse>
+            <ellipse cx="12" cy="0" rx="14" ry="9" fill="url(#petal-violet)" stroke="#000" stroke-width="1"></ellipse>
+            <ellipse cx="0" cy="12" rx="9" ry="14" fill="url(#petal-mint)" stroke="#000" stroke-width="1"></ellipse>
+            <ellipse cx="-12" cy="0" rx="14" ry="9" fill="url(#petal-wash)" stroke="#000" stroke-width="1"></ellipse>
+            <circle r="5" fill="#f7f3ee" stroke="#000" stroke-width="1"></circle>
+            <circle r="1.6" fill="#000"></circle>
+          </g>
+        </symbol>
+
+        <!-- Stakeholder icons -->
+        <symbol id="ic-learner" viewBox="0 0 32 32">
+          <path d="M16 5 L29 12 L16 19 L3 12 Z" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <path d="M8 14 V22 C8 25 12 27 16 27 C20 27 24 25 24 22 V14" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <line x1="29" y1="12" x2="29" y2="22" stroke="#000" stroke-width="1.5" stroke-linecap="round"></line>
+        </symbol>
+        <symbol id="ic-college" viewBox="0 0 32 32">
+          <rect x="4" y="13" width="24" height="14" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <path d="M2 13 L16 5 L30 13" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <rect x="10" y="18" width="4" height="9" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <rect x="18" y="18" width="4" height="9" fill="none" stroke="#000" stroke-width="1.5"></rect>
+        </symbol>
+        <symbol id="ic-employer" viewBox="0 0 32 32">
+          <rect x="5" y="10" width="22" height="17" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <path d="M12 10 V7 C12 6 13 5 14 5 H18 C19 5 20 6 20 7 V10" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <line x1="5" y1="17" x2="27" y2="17" stroke="#000" stroke-width="1.5"></line>
+          <circle cx="16" cy="17" r="1.5" fill="#000"></circle>
+        </symbol>
+        <symbol id="ic-library" viewBox="0 0 32 32">
+          <path d="M16 8 C12 5 6 5 4 6 V25 C6 24 12 24 16 27 C20 24 26 24 28 25 V6 C26 5 20 5 16 8 Z" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <line x1="16" y1="8" x2="16" y2="27" stroke="#000" stroke-width="1.5"></line>
+        </symbol>
+        <symbol id="ic-sprint" viewBox="0 0 32 32">
+          <path d="M7 20 C9 12 14 8 25 7" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+          <path d="M20 4 L25 7 L21 12" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M6 25 H18" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+          <path d="M5 11 H10 M4 15 H12" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+        </symbol>
+        <symbol id="ic-workflow" viewBox="0 0 32 32">
+          <rect x="5" y="6" width="8" height="8" rx="2" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <rect x="19" y="6" width="8" height="8" rx="2" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <rect x="12" y="20" width="8" height="8" rx="2" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <path d="M13 10 H19 M23 14 V18 C23 19.1 22.1 20 21 20 H20 M9 14 V18 C9 19.1 9.9 20 11 20 H12" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+        </symbol>
+        <symbol id="ic-evidence" viewBox="0 0 32 32">
+          <path d="M6 25 H27" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+          <rect x="8" y="15" width="4" height="8" rx="1" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <rect x="15" y="9" width="4" height="14" rx="1" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <rect x="22" y="12" width="4" height="11" rx="1" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <path d="M8 9 L13 6 L18 7 L25 4" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </symbol>
+        <symbol id="ic-proof" viewBox="0 0 32 32">
+          <path d="M9 6 H21 L26 11 V26 H9 Z" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <path d="M21 6 V12 H26" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <path d="M13 17 L16 20 L22 14" fill="none" stroke="#000" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M6 10 V29 H21" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+        </symbol>
+
+        <!-- Phase diagram icons -->
+        <symbol id="ic-readiness" viewBox="0 0 32 32">
+          <circle cx="16" cy="16" r="10" fill="none" stroke="#000" stroke-width="1.5"></circle>
+          <path d="M12 16 L15 19 L20 13" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </symbol>
+        <symbol id="ic-practice" viewBox="0 0 32 32">
+          <path d="M10 6 L22 6 L20 13 L24 13 L12 26 L15 17 L11 17 Z" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+        </symbol>
+        <symbol id="ic-portfolio" viewBox="0 0 32 32">
+          <rect x="6" y="9" width="20" height="17" fill="none" stroke="#000" stroke-width="1.5" rx="1"></rect>
+          <path d="M12 9 V6 H20 V9" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <line x1="11" y1="15" x2="21" y2="15" stroke="#000" stroke-width="1.5"></line>
+          <line x1="11" y1="19" x2="17" y2="19" stroke="#000" stroke-width="1.5"></line>
+        </symbol>
+
+        <!-- Star -->
+        <symbol id="star4" viewBox="0 0 32 32">
+          <path d="M16 2 C16 11 21 16 30 16 C21 16 16 21 16 30 C16 21 11 16 2 16 C11 16 16 11 16 2 Z" fill="#d88fb7"></path>
+        </symbol>
+
+        <!-- Sticker rotating text path -->
+        <symbol id="sticker-disc" viewBox="0 0 160 160">
+          <circle cx="80" cy="80" r="74" fill="#f7f3ee" stroke="#000" stroke-width="1"></circle>
+          <circle cx="80" cy="80" r="50" fill="none" stroke="#000" stroke-width="0.5" stroke-dasharray="2 4"></circle>
+          <path id="sticker-circle" d="M 80,80 m -62,0 a 62,62 0 1,1 124,0 a 62,62 0 1,1 -124,0" fill="none"></path>
+          <text font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="3" fill="#000">
+            <textPath href="#sticker-circle" startOffset="0">EST · 2025 · AI CAPABILITY COMMONS · MADE TO BE FORKED · </textPath>
+          </text>
+        </symbol>
+
+        <!-- Hand arrow -->
+        <symbol id="hand-arrow" viewBox="0 0 32 32">
+          <path d="M5 18 C9 14 14 11 22 11" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+          <path d="M18 7 L22 11 L18 16" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </symbol>
+
+        <!-- Big stamp ring text -->
+        <symbol id="stamp-ring" viewBox="0 0 400 400">
+          <circle cx="200" cy="200" r="194" fill="none" stroke="rgba(246,243,241,0.35)" stroke-width="1"></circle>
+          <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(246,243,241,0.18)" stroke-width="1" stroke-dasharray="3 6"></circle>
+          <path id="stamp-circle" d="M 200,200 m -176,0 a 176,176 0 1,1 352,0 a 176,176 0 1,1 -352,0" fill="none"></path>
+          <text font-family="IBM Plex Mono, monospace" font-size="18" letter-spacing="6" fill="rgba(246,243,241,0.85)">
+            <textPath href="#stamp-circle" startOffset="0">FORK · FUND · RUN · TEACH · LEARN · SHIP · </textPath>
+          </text>
+        </symbol>
+      </defs>
+    </svg>
+
+    <!-- ===================== Header ===================== -->
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html" aria-label="AI Capability Commons home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg><use href="#petal-logo"></use></svg>
+          </span>
+          <span class="brand-name"><b>AI Capability</b> <em>Commons</em></span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a class="nav-action" href="#start">Start</a>
+          <a href="#curriculum">Program</a>
+          <a href="launch-kit/index.html">Kit</a>
+          <a href="research.html">Evidence</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===================== HERO ===================== -->
+      <section class="hero-wrap" data-screen-label="01 Hero">
+        <div class="shell">
+          <div class="hero">
+            <div class="hero-copy reveal">
+              <p class="eyebrow">Evidence-backed · community-run · ready to teach</p>
+              <h1>
+                <span class="line">The proven way to build</span><br>
+                <span class="accent">real AI capability.</span>
+              </h1>
+              <p class="lede">
+                A 12-week, evidence-backed program that helps schools, companies, and communities
+                teach AI through real work, practical projects, and portfolio proof.
+              </p>
+              <div class="hero-actions">
+                <a class="button" href="launch-kit/index.html">Start the program <span class="arrow">→</span></a>
+                <a class="button secondary" href="research.html">See the evidence</a>
+              </div>
+              <div class="tag-row" aria-label="Program attributes">
+                <span class="tag green">schools</span>
+                <span class="tag coral">companies</span>
+                <span class="tag gold">communities</span>
+                <span class="tag violet">adult learners</span>
+                <span class="tag">frontline teams</span>
+              </div>
+            </div>
+
+            <aside class="hero-panel reveal" data-delay="1" aria-label="Program snapshot">
+              <div class="panel-top">
+                <div>
+                  <strong>The operating model.</strong>
+                  <p>One clear path from tool access to useful, responsible AI work.</p>
+                </div>
+                <span class="status-pill">ready now</span>
+              </div>
+
+              <div class="feature-board" aria-hidden="true">
+                <article class="visual-card visual-card-large violet">
+                  <span class="visual-icon"><svg><use href="#ic-sprint"></use></svg></span>
+                  <span class="visual-kicker">01 · on-ramp</span>
+                  <strong>1-day build sprint</strong>
+                  <p>Set up tools, build one useful artifact, and make the full cohort feel possible.</p>
+                </article>
+                <article class="visual-card cream">
+                  <span class="visual-icon"><svg><use href="#ic-workflow"></use></svg></span>
+                  <strong>Real workflows</strong>
+                  <p>3–6 safe projects.</p>
+                </article>
+                <article class="visual-card white">
+                  <span class="visual-icon"><svg><use href="#ic-evidence"></use></svg></span>
+                  <strong>Evidence</strong>
+                  <p>Baseline to demo day.</p>
+                </article>
+                <article class="visual-card lavender">
+                  <span class="visual-icon"><svg><use href="#ic-proof"></use></svg></span>
+                  <strong>Portfolio proof</strong>
+                  <p>Show the work.</p>
+                </article>
+              </div>
+
+              <div class="start-strip">
+                <div>
+                  <span class="num">01</span>
+                  <span>Optional on-ramp: run a 1-day build sprint so people feel the method.</span>
+                </div>
+                <div>
+                  <span class="num">02</span>
+                  <span>Run the 12-week cohort with 20–30 learners, a facilitator pair, and real workflows.</span>
+                </div>
+                <div>
+                  <span class="num">03</span>
+                  <span>Graduate with portfolio proof, measured capability gains, and a reusable local playbook.</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== TRUST STRIP ===================== -->
+      <section class="trust-strip" aria-label="Track record">
+        <div class="shell">
+          <p class="trust-label-center reveal">
+            From programs that have reached <em>4,485</em> members across <em>1,922</em> companies
+          </p>
+        </div>
+        <div class="trust-marquee reveal" role="presentation">
+          <div class="trust-marquee-track">
+            <span class="logo">Microsoft</span>
+            <span class="logo">Google</span>
+            <span class="logo">Amazon</span>
+            <span class="logo">KPMG</span>
+            <span class="logo">Disney</span>
+            <span class="logo">Bloomberg</span>
+            <span class="logo">Visa</span>
+            <span class="logo">Mastercard</span>
+            <span class="logo">JP&nbsp;Morgan</span>
+            <span class="logo">Canva</span>
+            <span class="logo">Shopify</span>
+            <span class="logo">DocuSign</span>
+            <span class="logo">HubSpot</span>
+            <span class="logo">Zoom</span>
+            <span class="logo">LG</span>
+            <span class="logo">BBC</span>
+            <span class="logo">Hilton</span>
+            <span class="logo">FedEx</span>
+            <span class="logo">Adobe</span>
+            <span class="logo">Salesforce</span>
+            <!-- duplicate for seamless loop -->
+            <span class="logo">Microsoft</span>
+            <span class="logo">Google</span>
+            <span class="logo">Amazon</span>
+            <span class="logo">KPMG</span>
+            <span class="logo">Disney</span>
+            <span class="logo">Bloomberg</span>
+            <span class="logo">Visa</span>
+            <span class="logo">Mastercard</span>
+            <span class="logo">JP&nbsp;Morgan</span>
+            <span class="logo">Canva</span>
+            <span class="logo">Shopify</span>
+            <span class="logo">DocuSign</span>
+            <span class="logo">HubSpot</span>
+            <span class="logo">Zoom</span>
+            <span class="logo">LG</span>
+            <span class="logo">BBC</span>
+            <span class="logo">Hilton</span>
+            <span class="logo">FedEx</span>
+            <span class="logo">Adobe</span>
+            <span class="logo">Salesforce</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== THESIS (white) ===================== -->
+      <section class="section surface-white" id="thesis" data-screen-label="02 Thesis">
+        <div class="shell">
+          <div class="section-label-bar reveal">The thesis</div>
+          <div class="section-head reveal">
+            <p class="eyebrow">Why this program exists</p>
+            <h2>Make people more capable, <em style="font-style:italic;">not</em> more replaceable.</h2>
+            <p>
+              The highest-probability bets are <strong style="color: var(--color-ink); font-weight:500;">AI transition apprenticeships</strong> and
+              <strong style="color: var(--color-ink); font-weight:500;">learning infrastructure for community colleges and adult learners</strong>.
+              This program fuses them: teach practical AI through real work, wrap it in a cohort, and leave
+              every community with reusable infrastructure.
+            </p>
+          </div>
+
+          <div class="grid three">
+            <article class="thesis-card reveal" data-delay="1">
+              <span class="tc-blob amber" aria-hidden="true"></span>
+              <span class="tc-num">01 · Real work</span>
+              <h3>Apprenticeship, not lecture.</h3>
+              <p>
+                Each learner is paired to a live workflow donated by an employer or community
+                organization — the kind of recurring task AI can quietly reshape inside a job.
+              </p>
+              <div class="tc-foot">
+                <span class="label">Hours of hands-on</span>
+                <span class="big">120<span style="font-size:0.55em">+</span></span>
+              </div>
+            </article>
+
+            <article class="thesis-card reveal" data-delay="2">
+              <span class="tc-blob mint" aria-hidden="true"></span>
+              <span class="tc-num">02 · Public goods</span>
+              <h3>The cohort is the curriculum.</h3>
+              <p>
+                Every cohort produces reusable artifacts — implementation guides, portfolio templates,
+                evaluation rubrics — that the next community inherits on day one.
+              </p>
+              <div class="tc-foot">
+                <span class="label">Artifacts per cohort</span>
+                <span class="big">14</span>
+              </div>
+            </article>
+
+            <article class="thesis-card reveal" data-delay="3">
+              <span class="tc-blob violet" aria-hidden="true"></span>
+              <span class="tc-num">03 · Local agency</span>
+              <h3>Run by neighbors, not vendors.</h3>
+              <p>
+                Community colleges, libraries, workforce boards, and nonprofits operate cohorts on the
+                ground. The center of gravity stays local.
+              </p>
+              <div class="tc-foot">
+                <span class="label">Pilot sites · year one</span>
+                <span class="big">12</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ===================== CURRENT SIGNALS (paper) ===================== -->
+      <section class="section signal-section" id="signals" data-screen-label="03 Signals">
+        <div class="shell">
+          <div class="signal-panel reveal">
+            <div>
+              <div class="section-label-bar" style="margin-bottom: var(--sp-24);">Why this can move now</div>
+              <div class="section-head">
+                <p class="eyebrow">The signal is already here</p>
+                <h2>Public priorities now point at practical, measured, community-led AI adoption.</h2>
+                <p>
+                  This is the moment for a program that starts locally, produces evidence, and gives
+                  communities the operating system to turn AI access into real capability.
+                </p>
+              </div>
+              <p class="signal-note">
+                See the <a href="research.html">evidence page</a> for source links and dated claims.
+              </p>
+            </div>
+            <div class="signal-grid" aria-label="Current evidence signals">
+              <article class="signal-stat">
+                <span class="num">$1B+</span>
+                <span class="label">OpenAI Foundation expected investment across jobs, AI resilience, and community programs in 2026.</span>
+                <span class="source-mini">OpenAI Foundation · Mar 2026</span>
+              </article>
+              <article class="signal-stat">
+                <span class="num">+144%</span>
+                <span class="label">National growth in job postings with AI skills over one year, according to BPC and Lightcast's April 2026 analysis.</span>
+                <span class="source-mini">BPC + Lightcast · May 2026</span>
+              </article>
+              <article class="signal-stat">
+                <span class="num">12<span style="font-size:0.55em; font-style:normal;"> weeks</span></span>
+                <span class="label">A cohort length long enough for practice, short enough for adult learners and working teams.</span>
+                <span class="source-mini">Program design</span>
+              </article>
+              <article class="signal-stat">
+                <span class="num">4<span style="font-size:0.55em; font-style:normal;"> paths</span></span>
+                <span class="label">Learner, facilitator, employer, and community institution playbooks share one operating model.</span>
+                <span class="source-mini">Launch kit v1</span>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CURRICULUM (atmosphere wash) ===================== -->
+      <section class="section curriculum-section" id="curriculum" data-screen-label="03 Curriculum">
+        <div class="shell">
+          <div class="section-label-bar reveal">12 weeks · curriculum</div>
+          <div class="section-head reveal">
+            <p class="eyebrow">Readiness → Practice → Portfolio</p>
+            <h2>A cohort path <em style="font-style: italic;">that fits</em> a working life.</h2>
+            <p>
+              Twelve weeks, six hours a week — three of cohort time, three of paired workflow practice.
+              Each week ships a small artifact, so learners leave with proof, not promises.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <div class="phase-tabs" role="tablist" aria-label="Filter by phase">
+              <button class="phase-tab is-active" data-phase="all" role="tab">All 12 weeks</button>
+              <button class="phase-tab" data-phase="readiness" role="tab"><span class="dot"></span>Readiness</button>
+              <button class="phase-tab" data-phase="practice" role="tab"><span class="dot"></span>Practice</button>
+              <button class="phase-tab" data-phase="portfolio" role="tab"><span class="dot"></span>Portfolio</button>
+            </div>
+          </div>
+
+          <div class="weeks reveal" data-filter="all">
+            <div class="week amber">
+              <span class="week-num"><span class="n">01</span>Readiness</span>
+              <h4>The AI you already touch</h4>
+              <p>Audit the tools already in your work life. Name what helps, what fakes, what harms.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+            <div class="week amber">
+              <span class="week-num"><span class="n">02</span>Readiness</span>
+              <h4>Prompts as small instruments</h4>
+              <p>Write, test, and version prompts the way a craftsperson sharpens tools.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+            <div class="week amber">
+              <span class="week-num"><span class="n">03</span>Readiness</span>
+              <h4>Reading a model's edges</h4>
+              <p>Where models hallucinate, defer, and break. Calibrated trust as a workplace skill.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+            <div class="week violet">
+              <span class="week-num"><span class="n">04</span>Practice</span>
+              <h4>Choose your workflow</h4>
+              <p>Match to a real, recurring task donated by a partner employer or community org.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+            <div class="week violet">
+              <span class="week-num"><span class="n">05</span>Practice</span>
+              <h4>Map the current process</h4>
+              <p>Document the workflow as it exists. Identify friction, repetition, and judgment calls.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+            <div class="week violet">
+              <span class="week-num"><span class="n">06</span>Practice</span>
+              <h4>First AI-assisted draft</h4>
+              <p>Build the smallest possible AI-assisted version. Compare it against baseline.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+            <div class="week violet">
+              <span class="week-num"><span class="n">07</span>Practice</span>
+              <h4>Human-in-the-loop design</h4>
+              <p>Decide where the human stays in the seat. Make the handoffs explicit and humane.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+            <div class="week violet">
+              <span class="week-num"><span class="n">08</span>Practice</span>
+              <h4>Evaluation &amp; guardrails</h4>
+              <p>Set up checks: accuracy, equity, privacy, escalation. Practice failing safely.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+            <div class="week violet">
+              <span class="week-num"><span class="n">09</span>Practice</span>
+              <h4>Deploy with a peer</h4>
+              <p>Pair-deploy the workflow inside the host organization for two real working weeks.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+            <div class="week coral">
+              <span class="week-num"><span class="n">10</span>Portfolio</span>
+              <h4>Write the implementation guide</h4>
+              <p>Turn the experience into a guide the next learner — or organization — can follow.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+            <div class="week coral">
+              <span class="week-num"><span class="n">11</span>Portfolio</span>
+              <h4>Tell the story honestly</h4>
+              <p>Demo what worked, what didn't, and what you'd never automate. To peers and employers.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+            <div class="week coral">
+              <span class="week-num"><span class="n">12</span>Portfolio</span>
+              <h4>Place into a role pathway</h4>
+              <p>Graduate with a portfolio, a role pathway, and a named local mentor for year one.</p>
+              <span class="phase-dot" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== HOST NEEDS (white) ===================== -->
+      <section class="section surface-white" id="host-needs" data-screen-label="04 Host needs">
+        <div class="shell">
+          <div class="host-needs">
+            <div class="section-head reveal">
+              <p class="eyebrow">What a host needs</p>
+              <h2>Enough structure to begin. Enough room to make it local.</h2>
+              <p>
+                The program does not require a new platform, a grant cycle, or a perfect lab. A school,
+                company, library, workforce board, or nonprofit can start with a small host team and a
+                clear calendar.
+              </p>
+            </div>
+            <div class="host-list reveal" data-delay="1" aria-label="Minimum host requirements">
+              <div><span>01</span>20 to 30 learners</div>
+              <div><span>02</span>Facilitator pair</div>
+              <div><span>03</span>AI tool access</div>
+              <div><span>04</span>Shared workspace</div>
+              <div><span>05</span>3 to 6 real workflows</div>
+              <div><span>06</span>Demo day date</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== ONE KIT (white) ===================== -->
+      <section class="section surface-white" id="paths" data-screen-label="04 Kit">
+        <div class="shell">
+          <div class="section-label-bar reveal">One kit · four ways to run it</div>
+          <div class="section-head reveal">
+            <p class="eyebrow">Built for the people who actually run things</p>
+            <h2>One kit. Adapts to <em style="font-style:italic;">who's running it</em>.</h2>
+            <p>
+              The same 12-week spine, the same evaluation rubrics, the same artifacts. Pick the niche
+              that fits where you sit — the kit changes the framing, not the substance.
+            </p>
+          </div>
+
+          <div class="kit-feature reveal">
+            <div class="kit-niche-bar" role="tablist" aria-label="Switch niche">
+              <button class="niche-tab is-active" data-niche="learners" role="tab">
+                <span class="niche-glyph amber" aria-hidden="true"><svg><use href="#ic-learner"></use></svg></span>
+                <span class="niche-label">Learners</span>
+              </button>
+              <button class="niche-tab" data-niche="colleges" role="tab">
+                <span class="niche-glyph mint" aria-hidden="true"><svg><use href="#ic-college"></use></svg></span>
+                <span class="niche-label">Colleges</span>
+              </button>
+              <button class="niche-tab" data-niche="employers" role="tab">
+                <span class="niche-glyph violet" aria-hidden="true"><svg><use href="#ic-employer"></use></svg></span>
+                <span class="niche-label">Employers</span>
+              </button>
+              <button class="niche-tab" data-niche="libraries" role="tab">
+                <span class="niche-glyph wash" aria-hidden="true"><svg><use href="#ic-library"></use></svg></span>
+                <span class="niche-label">Libraries &amp; nonprofits</span>
+              </button>
+            </div>
+
+            <div class="kit-body">
+              <div class="kit-pane">
+                <p class="kit-for">For <span data-niche-text="for">learners</span></p>
+                <h3 class="kit-headline" data-niche-text="headline">
+                  Twelve weeks, one real workflow, proof you can show a hiring manager.
+                </h3>
+                <ul class="kit-bullets" data-niche-list="bullets">
+                  <li>20–30 person cohort · 6 hours per week · 12 weeks</li>
+                  <li>One real workflow you'll own from week 4 to graduation</li>
+                  <li>Portfolio, role pathway, and a named mentor for year one</li>
+                  <li>No prior AI experience required to apply</li>
+                </ul>
+                <a class="path-link" href="#start" data-niche-cta="link">
+                  <span data-niche-text="cta">Join a cohort</span> <span class="arrow">→</span>
+                </a>
+              </div>
+
+              <div class="kit-spine">
+                <p class="kit-spine-label">The shared spine — same for every niche</p>
+                <ol class="kit-spine-list">
+                  <li>
+                    <span class="ks-num">1–3</span>
+                    <span class="ks-phase amber">Readiness</span>
+                    <span class="ks-text">Audit, prompts, edges of the model.</span>
+                  </li>
+                  <li>
+                    <span class="ks-num">4–9</span>
+                    <span class="ks-phase violet">Practice</span>
+                    <span class="ks-text">Real workflow · map, draft, evaluate, deploy.</span>
+                  </li>
+                  <li>
+                    <span class="ks-num">10–12</span>
+                    <span class="ks-phase coral">Portfolio</span>
+                    <span class="ks-text">Implementation guide · demo · role pathway.</span>
+                  </li>
+                </ol>
+                <div class="kit-spine-foot">
+                  <span class="tag">curriculum</span>
+                  <span class="tag">rubrics</span>
+                  <span class="tag">artifacts</span>
+                  <span class="tag">guardrails</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== VOICES (paper) ===================== -->
+      <section class="voices-section" data-screen-label="05 Voices">
+        <div class="shell">
+          <div class="section-label-bar reveal">Voices from pilots</div>
+          <div class="quote-row">
+            <figure class="quote reveal" data-delay="1">
+              <div class="qmark" aria-hidden="true">"</div>
+              <p>
+                We stopped asking whether AI would change the work. We started asking which parts of the
+                work we wanted to keep — and built the rest around that.
+              </p>
+              <figcaption class="attrib">
+                <span class="avatar" aria-hidden="true">M</span>
+                Marisol O. · workforce program lead
+              </figcaption>
+            </figure>
+            <figure class="quote reveal" data-delay="2">
+              <div class="qmark" aria-hidden="true">"</div>
+              <p>
+                Twelve weeks, one real workflow, a portfolio. It is the first thing I have shown a hiring
+                manager that didn't feel like a slide deck.
+              </p>
+              <figcaption class="attrib">
+                <span class="avatar" aria-hidden="true">D</span>
+                D. Akinyemi · cohort graduate
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== LAUNCH KIT / PUBLIC GOODS (atmosphere wash) ===================== -->
+      <section class="section curriculum-section" id="launch-kit-overview" data-screen-label="06 Launch Kit">
+        <div class="shell">
+          <div class="public-goods">
+            <div class="lhs reveal">
+              <div class="section-label-bar" style="margin-bottom: var(--sp-24);">The launch kit</div>
+              <p class="eyebrow">Open source · CC BY-SA 4.0</p>
+              <h2>Start simple. Keep the full depth behind it.</h2>
+              <p style="margin-top: 24px;">
+                The launch kit now opens as an action path, not a document pile. Start with the host
+                checklist, use the 1-day build sprint if you want an on-ramp, then run the 12-week cohort
+                with measurement from day one.
+              </p>
+              <div class="lhs-actions">
+                <a class="button" href="launch-kit/index.html">Start the program <span class="arrow">→</span></a>
+                <a class="button secondary" href="launch-kit/v1/12-one-day-build-sprint-runbook.html">1-day build sprint</a>
+              </div>
+            </div>
+
+            <div class="goods-list reveal" data-delay="1">
+              <a class="good" href="launch-kit/v1/00-start-here-program-guide.html">
+                <div class="good-num">01</div>
+                <div>
+                  <h4>Start here</h4>
+                  <p>Confirm host, learners, facilitator pair, workflows, and the first calendar.</p>
+                </div>
+                <span class="file-tag">Host checklist</span>
+              </a>
+              <a class="good" href="launch-kit/v1/12-one-day-build-sprint-runbook.html">
+                <div class="good-num">02</div>
+                <div>
+                  <h4>Run a 1-day build sprint</h4>
+                  <p>A simple on-ramp that lets people try the method before a full cohort begins.</p>
+                </div>
+                <span class="file-tag">Runbook</span>
+              </a>
+              <a class="good" href="launch-kit/v1/03-session-plans.html">
+                <div class="good-num">03</div>
+                <div>
+                  <h4>Run the 12-week cohort</h4>
+                  <p>Readiness, practice, and portfolio sessions with exercises, homework, and artifacts.</p>
+                </div>
+                <span class="file-tag">36 sessions</span>
+              </a>
+              <a class="good" href="launch-kit/v1/07-measurement-and-rubrics.html">
+                <div class="good-num">04</div>
+                <div>
+                  <h4>Measure outcomes</h4>
+                  <p>Baseline, portfolio rubric, work usefulness, pathway conversion, and cohort report.</p>
+                </div>
+                <span class="file-tag">Evidence</span>
+              </a>
+              <a class="good" href="launch-kit/index.html#full-library">
+                <div class="good-num">05</div>
+                <div>
+                  <h4>Full library</h4>
+                  <p>Facilitator guide, learner workbook, project bank, comms, workflow donation, and templates.</p>
+                </div>
+                <span class="file-tag">All materials</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== TRACK RECORD (dark) ===================== -->
+      <section class="section evidence-section surface-ink" id="evidence" data-screen-label="07 Track record">
+        <div class="shell">
+          <div class="section-label-bar reveal">Track record · prior cohorts</div>
+          <div class="section-head reveal">
+            <p class="eyebrow">Why trust this kit</p>
+            <h2>Built by people who have <em style="font-style:italic;">done this before</em>.</h2>
+            <p>
+              This isn't a hypothesis. The patterns in this kit — small cohorts, one real workflow per
+              learner, public artifacts, named mentors — are the patterns already used in AI programs
+              reaching 4,485 members, 1,922 companies, and 1,909 shipped agents.
+            </p>
+          </div>
+
+          <div class="stats">
+            <div class="stat reveal" data-delay="1">
+              <span class="stat-mark">/01</span>
+              <div class="big" data-count-to="4485"><span class="unit">+</span></div>
+              <div class="label">Members signed up through prior AI learning programs</div>
+              <div class="src">Opal University · May 22, 2026</div>
+            </div>
+            <div class="stat reveal" data-delay="2">
+              <span class="stat-mark">/02</span>
+              <div class="big">25<span class="unit">%</span></div>
+              <div class="label">Past graduates promoted or moved into a new role</div>
+              <div class="src">Graduate outcomes · reported</div>
+            </div>
+            <div class="stat reveal" data-delay="3">
+              <span class="stat-mark">/03</span>
+              <div class="big" data-count-to="1909"><span class="unit">+</span></div>
+              <div class="label">Agents and AI workflows shipped by learners</div>
+              <div class="src">Public + private deployments</div>
+            </div>
+            <div class="stat reveal" data-delay="4">
+              <span class="stat-mark">/04</span>
+              <div class="big" data-count-to="7171"></div>
+              <div class="label">Hours saved per week across the active agent fleet</div>
+              <div class="src">KPI dashboard · Apr 22, 2026</div>
+            </div>
+          </div>
+
+          <div class="evidence-link-row reveal" data-delay="2">
+            <a class="button secondary on-ink" href="research.html">Open the evidence page <span class="arrow">→</span></a>
+            <a class="button secondary on-ink" href="research.html#measurement">Evidence plan</a>
+          </div>
+
+          <!-- Logo grid -->
+          <div class="logo-band reveal" data-delay="2">
+            <p class="logo-band-label">Graduates have come from teams at —</p>
+            <div class="logo-grid">
+              <span class="logo">Microsoft</span>
+              <span class="logo">Google</span>
+              <span class="logo">Amazon</span>
+              <span class="logo">Disney</span>
+              <span class="logo">KPMG</span>
+              <span class="logo">Deloitte</span>
+              <span class="logo">Visa</span>
+              <span class="logo">Mastercard</span>
+              <span class="logo">JP&nbsp;Morgan</span>
+              <span class="logo">Bloomberg</span>
+              <span class="logo">IBM</span>
+              <span class="logo">Adobe</span>
+              <span class="logo">Salesforce</span>
+              <span class="logo">LinkedIn</span>
+              <span class="logo">Shopify</span>
+              <span class="logo">DocuSign</span>
+              <span class="logo">Canva</span>
+              <span class="logo">HubSpot</span>
+              <span class="logo">Zoom</span>
+              <span class="logo">BBC</span>
+              <span class="logo">FedEx</span>
+              <span class="logo">Hilton</span>
+              <span class="logo">AstraZeneca</span>
+              <span class="logo">BMW</span>
+              <span class="logo">LG</span>
+              <span class="logo">Walmart</span>
+              <span class="logo">Wells&nbsp;Fargo</span>
+              <span class="logo">Accenture</span>
+            </div>
+          </div>
+
+          <!-- Program lead bio -->
+          <div class="lead-bio reveal" data-delay="3">
+            <div class="lead-bio-portrait" aria-hidden="true">
+              <span class="lb-blob"></span>
+              <span class="lb-mono">SM</span>
+            </div>
+            <div class="lead-bio-body">
+              <p class="lead-bio-label">Program lead</p>
+              <h3 class="lead-bio-name">Steven Male</h3>
+              <p class="lead-bio-copy">
+                Steven created and leads Opal University after running AirOps U, turning AI ambition into real shipped workflows. His programs have reached 4,485 members, 1,922 companies, and 1,909 shipped agents, with 7,171 hours saved each week across the active fleet. Before that, he built and sold a marketing agency, led growth at four startups, and taught hundreds of teams to build AI workflows. The kit is what he wishes every community had on day one.
+              </p>
+              <a class="lead-bio-link" href="#start">
+                Read his approach <span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== FAQ (white) ===================== -->
+      <section class="section surface-white" id="faq" data-screen-label="08 FAQ">
+        <div class="shell">
+          <div class="faq-grid">
+            <div class="lhs reveal">
+              <div class="section-label-bar" style="margin-bottom: var(--sp-24);">FAQ</div>
+              <p class="eyebrow">Before you write to ask</p>
+              <h2>Common questions, <em style="font-style:italic;">honest</em> answers.</h2>
+              <p style="margin-top: 24px; font-family: var(--font-sans); font-size: 18px; line-height: 1.55;">
+                If your question is not here, write to the program lead at your nearest pilot site, or open
+                an issue on the toolkit repo.
+              </p>
+              <p class="script" style="margin-top: 24px; font-size: 28px;">we read every one.</p>
+            </div>
+            <div class="faq reveal" data-delay="1">
+              <details>
+                <summary>Who is this program for?<span class="qicon" aria-hidden="true">+</span></summary>
+                <p>
+                  Working adults, returning students, and frontline teams who want practical AI capability
+                  without leaving their job or their community. No prior AI experience is required.
+                </p>
+              </details>
+              <details>
+                <summary>What does it cost a cohort site to run?<span class="qicon" aria-hidden="true">+</span></summary>
+                <p>
+                  Roughly the staff cost of one half-time program lead for the 12 weeks. The curriculum,
+                  rubrics, and toolkit are free and open. Employer workflow donations cover most learner
+                  stipends in current pilots.
+                </p>
+              </details>
+              <details>
+                <summary>Is the curriculum tied to a specific AI vendor?<span class="qicon" aria-hidden="true">+</span></summary>
+                <p>
+                  No. Sessions are written model-agnostic and rotate between hosted assistants and local
+                  tools, so learners build durable habits — not vendor muscle memory.
+                </p>
+              </details>
+              <details>
+                <summary>How is data privacy handled in workflow donations?<span class="qicon" aria-hidden="true">+</span></summary>
+                <p>
+                  The donation kit includes a redaction protocol, a data-use agreement, and a default
+                  preference for on-device or vendor-isolated tooling. Apprentices never operate on
+                  unredacted real customer data without an employer sign-off and an explicit review.
+                </p>
+              </details>
+              <details>
+                <summary>Can I just take the materials and run it myself?<span class="qicon" aria-hidden="true">+</span></summary>
+                <p>
+                  Yes. That is the entire point. Fork the toolkit, follow the recruitment playbook, and
+                  let the network know so we can connect you to a regional mentor.
+                </p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== START CTA ===================== -->
+      <section class="start-section" id="start" data-screen-label="09 Start">
+        <div class="shell">
+          <div class="start-cta reveal">
+            <div>
+              <p class="eyebrow" style="color: rgba(246,243,241,0.7);">Start a cohort</p>
+              <h2>The program is ready.<br>The next move is <em style="font-style:italic;">yours</em>.</h2>
+              <p class="lead">
+                Open the kit, confirm the host checklist, and start with either the 1-day build sprint or the first local cohort. The materials include the curriculum, facilitator guide, employer playbook, outreach copy, and measurement plan.
+              </p>
+              <div class="start-actions">
+                <a class="button" href="launch-kit/index.html">Start the program →</a>
+                <a class="button secondary" href="#curriculum">See the curriculum</a>
+              </div>
+            </div>
+            <div class="start-visual" aria-hidden="true">
+              <div class="dash-blob" aria-hidden="true"></div>
+              <div class="dash">
+                <div class="dash-head">
+                  <div class="dash-title">
+                    <span class="dash-mark"><svg><use href="#petal-logo"></use></svg></span>
+                    <div>
+                      <span class="dash-label">Cohort 01 · in progress</span>
+                      <strong>Riverside CC · Fall '26</strong>
+                    </div>
+                  </div>
+                  <span class="dash-pill">wk 7 / 12</span>
+                </div>
+
+                <div class="dash-progress">
+                  <div class="dp-row">
+                    <span class="dp-label">Readiness</span>
+                    <span class="dp-bar"><span class="dp-fill amber" style="width:100%"></span></span>
+                    <span class="dp-val">3/3</span>
+                  </div>
+                  <div class="dp-row">
+                    <span class="dp-label">Practice</span>
+                    <span class="dp-bar"><span class="dp-fill mint" style="width:66%"></span></span>
+                    <span class="dp-val">4/6</span>
+                  </div>
+                  <div class="dp-row">
+                    <span class="dp-label">Portfolio</span>
+                    <span class="dp-bar"><span class="dp-fill coral" style="width:0%"></span></span>
+                    <span class="dp-val">0/3</span>
+                  </div>
+                </div>
+
+                <div class="dash-list">
+                  <p class="dash-list-label">This week's artifacts</p>
+                  <div class="dash-item">
+                    <span class="di-num">07</span>
+                    <div class="di-body">
+                      <strong>Human-in-the-loop design</strong>
+                      <span>22 of 24 learners shipped</span>
+                    </div>
+                    <span class="di-tag live">live</span>
+                  </div>
+                  <div class="dash-item">
+                    <span class="di-num">06</span>
+                    <div class="di-body">
+                      <strong>First AI-assisted draft</strong>
+                      <span>24 of 24 complete</span>
+                    </div>
+                    <span class="di-tag done">done</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <div class="shell">
+        <div class="foot-grid">
+          <div class="foot-brand">
+            <a class="brand" href="index.html" aria-label="AI Capability Commons home">
+              <span class="brand-mark" aria-hidden="true">
+                <svg><use href="#petal-logo"></use></svg>
+              </span>
+              <span class="brand-name"><b>AI Capability</b> <em>Commons</em></span>
+            </a>
+            <p class="brand-tagline">
+              A community-run AI program for adults, students, and frontline teams. Built as a public
+              good — forkable, fundable, and shaped by the people who actually run things on the ground.
+            </p>
+          </div>
+          <div class="foot-col">
+            <h5>Program</h5>
+            <ul>
+              <li><a href="#curriculum">Program</a></li>
+              <li><a href="#paths">Paths</a></li>
+              <li><a href="launch-kit/index.html">Kit</a></li>
+              <li><a href="launch-kit/v1/12-one-day-build-sprint-runbook.html">Build sprint</a></li>
+              <li><a href="research.html">Evidence</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h5>Network</h5>
+            <ul>
+              <li><a href="#start">Start a cohort</a></li>
+              <li><a href="launch-kit/index.html">Download the kit</a></li>
+              <li><a href="launch-kit/v1/06-employer-workflow-donation-kit.html">Donate a workflow</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h5>Public</h5>
+            <ul>
+              <li><a href="launch-kit/v1/00-start-here-program-guide.html">Launch plan</a></li>
+              <li><a href="launch-kit/v1/08-community-comms-pack.html">Comms pack</a></li>
+              <li><a href="launch-kit/index.html">Full kit</a></li>
+              <li><a href="mailto:hello@aicapcommons.org">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot-base">
+          <span>© 2026 AI Capability Commons</span>
+          <span>Made for communities</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===================== Motion script ===================== -->
+    <script>
+      (function () {
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+          reveals.forEach((el) => io.observe(el));
+        } else {
+          reveals.forEach((el) => el.classList.add('in'));
+        }
+
+        // Phase filter tabs
+        const tabs = document.querySelectorAll('.phase-tab');
+        const weeks = document.querySelector('.weeks');
+        tabs.forEach((tab) => {
+          tab.addEventListener('click', () => {
+            tabs.forEach((t) => t.classList.remove('is-active'));
+            tab.classList.add('is-active');
+            const phase = tab.dataset.phase;
+            if (weeks) weeks.dataset.filter = phase;
+          });
+        });
+
+        // Animated counters
+        const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+        function animateCount(el) {
+          const target = parseFloat(el.dataset.countTo);
+          const decimals = parseInt(el.dataset.decimals || '0', 10);
+          const unit = el.querySelector('.unit');
+          const unitHTML = unit ? unit.outerHTML : '';
+          const start = performance.now();
+          const dur = 1400;
+          function tick(now) {
+            const t = Math.min(1, (now - start) / dur);
+            const raw = target * easeOut(t);
+            const v = target >= 1000 ? Math.round(raw).toLocaleString() : raw.toFixed(decimals);
+            el.innerHTML = v + unitHTML;
+            if (t < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }
+        if ('IntersectionObserver' in window) {
+          const cio = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                animateCount(e.target);
+                cio.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.4 });
+          document.querySelectorAll('[data-count-to]').forEach((el) => cio.observe(el));
+        }
+
+        // Niche switcher
+        const NICHES = {
+          learners: {
+            for: 'learners',
+            headline: "Twelve weeks, one real workflow, proof you can show a hiring manager.",
+            bullets: [
+              "20–30 person cohort · 6 hours per week · 12 weeks",
+              "One real workflow you'll own from week 4 to graduation",
+              "Portfolio, role pathway, and a named mentor for year one",
+              "No prior AI experience required to apply",
+            ],
+            cta: "Join a cohort",
+          },
+          colleges: {
+            for: 'community colleges',
+            headline: "A drop-in 12-week program that stacks to credentials you already award.",
+            bullets: [
+              "Full syllabi, lesson plans, and 6-hour facilitator training",
+              "Stackable to existing workforce and continuing-ed credentials",
+              "Outcome reporting templates ready for funders and boards",
+              "Lightweight tech requirements · no enterprise stack needed",
+            ],
+            cta: "Open the kit",
+          },
+          employers: {
+            for: 'employers',
+            headline: "Donate one real workflow. Get an apprentice and an implementation guide back.",
+            bullets: [
+              "Sponsor a workflow · an apprentice spends 12 weeks inside your team",
+              "Receive a reusable implementation guide written by the apprentice",
+              "Equity, privacy, and escalation guardrails baked into the curriculum",
+              "Optional conversion track when the apprentice's work lands",
+            ],
+            cta: "Sponsor a workflow",
+          },
+          libraries: {
+            for: 'libraries & nonprofits',
+            headline: "Run cohorts in branches and community spaces. No enterprise stack.",
+            bullets: [
+              "Designed for branches, community spaces, and small staff teams",
+              "Lightweight tech · works on consumer laptops and free tools",
+              "A resource shelf and office hours for non-cohort drop-ins",
+              "Recurring monthly office hours from the network of pilot sites",
+            ],
+            cta: "Host a cohort",
+          },
+        };
+
+        const niches = document.querySelectorAll('.niche-tab');
+        const kitPane = document.querySelector('.kit-pane');
+        function applyNiche(key) {
+          const data = NICHES[key]; if (!data || !kitPane) return;
+          kitPane.querySelector('[data-niche-text="for"]').textContent = data.for;
+          kitPane.querySelector('[data-niche-text="headline"]').textContent = data.headline;
+          kitPane.querySelector('[data-niche-text="cta"]').textContent = data.cta;
+          const list = kitPane.querySelector('[data-niche-list="bullets"]');
+          list.innerHTML = '';
+          data.bullets.forEach((b) => {
+            const li = document.createElement('li');
+            li.textContent = b;
+            list.appendChild(li);
+          });
+          // gentle fade-in on swap
+          kitPane.classList.remove('swap');
+          void kitPane.offsetWidth;
+          kitPane.classList.add('swap');
+        }
+        niches.forEach((tab) => {
+          tab.addEventListener('click', () => {
+            niches.forEach((t) => t.classList.remove('is-active'));
+            tab.classList.add('is-active');
+            applyNiche(tab.dataset.niche);
+          });
+        });
+      })();
+    </script>
+  
+
+</body></html>

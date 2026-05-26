@@ -1,0 +1,292 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//AI Capability Commons//Launch Kit V1//EN
+BEGIN:VEVENT
+UID:aicc-w1-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20260914T170000Z
+DTEND:20260914T180000Z
+SUMMARY:AI Capability Commons W1 Session A - AI, Agency, and the Work Ahead
+DESCRIPTION:Learn session. Artifact: Personal AI use statement.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w1-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20260916T170000Z
+DTEND:20260916T180000Z
+SUMMARY:AI Capability Commons W1 Session B - AI, Agency, and the Work Ahead
+DESCRIPTION:Lab session. Artifact: Personal AI use statement.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w1-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20260918T170000Z
+DTEND:20260918T180000Z
+SUMMARY:AI Capability Commons W1 Session C - AI, Agency, and the Work Ahead
+DESCRIPTION:Studio session. Artifact: Personal AI use statement.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w2-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20260921T170000Z
+DTEND:20260921T180000Z
+SUMMARY:AI Capability Commons W2 Session A - Prompting as Work Design
+DESCRIPTION:Learn session. Artifact: Prompt pattern library.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w2-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20260923T170000Z
+DTEND:20260923T180000Z
+SUMMARY:AI Capability Commons W2 Session B - Prompting as Work Design
+DESCRIPTION:Lab session. Artifact: Prompt pattern library.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w2-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20260925T170000Z
+DTEND:20260925T180000Z
+SUMMARY:AI Capability Commons W2 Session C - Prompting as Work Design
+DESCRIPTION:Studio session. Artifact: Prompt pattern library.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w3-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20260928T170000Z
+DTEND:20260928T180000Z
+SUMMARY:AI Capability Commons W3 Session A - Verification and Source Discipline
+DESCRIPTION:Learn session. Artifact: Verification checklist.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w3-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20260930T170000Z
+DTEND:20260930T180000Z
+SUMMARY:AI Capability Commons W3 Session B - Verification and Source Discipline
+DESCRIPTION:Lab session. Artifact: Verification checklist.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w3-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261002T170000Z
+DTEND:20261002T180000Z
+SUMMARY:AI Capability Commons W3 Session C - Verification and Source Discipline
+DESCRIPTION:Studio session. Artifact: Verification checklist.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w4-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261005T170000Z
+DTEND:20261005T180000Z
+SUMMARY:AI Capability Commons W4 Session A - Workflow Mapping
+DESCRIPTION:Learn session. Artifact: Workflow map and risk notes.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w4-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261007T170000Z
+DTEND:20261007T180000Z
+SUMMARY:AI Capability Commons W4 Session B - Workflow Mapping
+DESCRIPTION:Lab session. Artifact: Workflow map and risk notes.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w4-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261009T170000Z
+DTEND:20261009T180000Z
+SUMMARY:AI Capability Commons W4 Session C - Workflow Mapping
+DESCRIPTION:Studio session. Artifact: Workflow map and risk notes.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w5-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261012T170000Z
+DTEND:20261012T180000Z
+SUMMARY:AI Capability Commons W5 Session A - Role Lab: Communication and Operations
+DESCRIPTION:Learn session. Artifact: Operations workflow card.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w5-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261014T170000Z
+DTEND:20261014T180000Z
+SUMMARY:AI Capability Commons W5 Session B - Role Lab: Communication and Operations
+DESCRIPTION:Lab session. Artifact: Operations workflow card.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w5-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261016T170000Z
+DTEND:20261016T180000Z
+SUMMARY:AI Capability Commons W5 Session C - Role Lab: Communication and Operations
+DESCRIPTION:Studio session. Artifact: Operations workflow card.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w6-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261019T170000Z
+DTEND:20261019T180000Z
+SUMMARY:AI Capability Commons W6 Session A - Role Lab: Data, Research, and Decisions
+DESCRIPTION:Learn session. Artifact: Evidence memo.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w6-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261021T170000Z
+DTEND:20261021T180000Z
+SUMMARY:AI Capability Commons W6 Session B - Role Lab: Data, Research, and Decisions
+DESCRIPTION:Lab session. Artifact: Evidence memo.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w6-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261023T170000Z
+DTEND:20261023T180000Z
+SUMMARY:AI Capability Commons W6 Session C - Role Lab: Data, Research, and Decisions
+DESCRIPTION:Studio session. Artifact: Evidence memo.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w7-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261026T170000Z
+DTEND:20261026T180000Z
+SUMMARY:AI Capability Commons W7 Session A - Accessibility and Inclusion by Default
+DESCRIPTION:Learn session. Artifact: Inclusive use review.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w7-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261028T170000Z
+DTEND:20261028T180000Z
+SUMMARY:AI Capability Commons W7 Session B - Accessibility and Inclusion by Default
+DESCRIPTION:Lab session. Artifact: Inclusive use review.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w7-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261030T170000Z
+DTEND:20261030T180000Z
+SUMMARY:AI Capability Commons W7 Session C - Accessibility and Inclusion by Default
+DESCRIPTION:Studio session. Artifact: Inclusive use review.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w8-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261102T170000Z
+DTEND:20261102T180000Z
+SUMMARY:AI Capability Commons W8 Session A - Automation with Guardrails
+DESCRIPTION:Learn session. Artifact: Guardrail plan.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w8-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261104T170000Z
+DTEND:20261104T180000Z
+SUMMARY:AI Capability Commons W8 Session B - Automation with Guardrails
+DESCRIPTION:Lab session. Artifact: Guardrail plan.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w8-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261106T170000Z
+DTEND:20261106T180000Z
+SUMMARY:AI Capability Commons W8 Session C - Automation with Guardrails
+DESCRIPTION:Studio session. Artifact: Guardrail plan.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w9-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261109T170000Z
+DTEND:20261109T180000Z
+SUMMARY:AI Capability Commons W9 Session A - Portfolio Sprint One
+DESCRIPTION:Learn session. Artifact: Project brief and first prototype.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w9-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261111T170000Z
+DTEND:20261111T180000Z
+SUMMARY:AI Capability Commons W9 Session B - Portfolio Sprint One
+DESCRIPTION:Lab session. Artifact: Project brief and first prototype.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w9-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261113T170000Z
+DTEND:20261113T180000Z
+SUMMARY:AI Capability Commons W9 Session C - Portfolio Sprint One
+DESCRIPTION:Studio session. Artifact: Project brief and first prototype.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w10-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261116T170000Z
+DTEND:20261116T180000Z
+SUMMARY:AI Capability Commons W10 Session A - Portfolio Sprint Two
+DESCRIPTION:Learn session. Artifact: Test notes and before/after evidence.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w10-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261118T170000Z
+DTEND:20261118T180000Z
+SUMMARY:AI Capability Commons W10 Session B - Portfolio Sprint Two
+DESCRIPTION:Lab session. Artifact: Test notes and before/after evidence.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w10-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261120T170000Z
+DTEND:20261120T180000Z
+SUMMARY:AI Capability Commons W10 Session C - Portfolio Sprint Two
+DESCRIPTION:Studio session. Artifact: Test notes and before/after evidence.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w11-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261123T170000Z
+DTEND:20261123T180000Z
+SUMMARY:AI Capability Commons W11 Session A - Story, Demo, and Role Pathway
+DESCRIPTION:Learn session. Artifact: Demo script, role brief, and portfolio narrative.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w11-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261125T170000Z
+DTEND:20261125T180000Z
+SUMMARY:AI Capability Commons W11 Session B - Story, Demo, and Role Pathway
+DESCRIPTION:Lab session. Artifact: Demo script, role brief, and portfolio narrative.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w11-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261127T170000Z
+DTEND:20261127T180000Z
+SUMMARY:AI Capability Commons W11 Session C - Story, Demo, and Role Pathway
+DESCRIPTION:Studio session. Artifact: Demo script, role brief, and portfolio narrative.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w12-s1@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261130T170000Z
+DTEND:20261130T180000Z
+SUMMARY:AI Capability Commons W12 Session A - Demo Day and Next Cohort Handoff
+DESCRIPTION:Learn session. Artifact: Final portfolio, public share post, and next-step plan.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w12-s2@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261202T170000Z
+DTEND:20261202T180000Z
+SUMMARY:AI Capability Commons W12 Session B - Demo Day and Next Cohort Handoff
+DESCRIPTION:Lab session. Artifact: Final portfolio, public share post, and next-step plan.
+END:VEVENT
+BEGIN:VEVENT
+UID:aicc-w12-s3@aicapcommons.org
+DTSTAMP:20260524T120000Z
+DTSTART:20261204T170000Z
+DTEND:20261204T180000Z
+SUMMARY:AI Capability Commons W12 Session C - Demo Day and Next Cohort Handoff
+DESCRIPTION:Studio session. Artifact: Final portfolio, public share post, and next-step plan.
+END:VEVENT
+END:VCALENDAR

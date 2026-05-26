@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Evidence | AI Capability Commons</title>
+    <meta name="description" content="Source notes and measurement plan behind AI Capability Commons.">
+    <link rel="stylesheet" href="claude.css">
+  </head>
+  <body>
+    <!-- ===================== SVG defs (reusable) ===================== -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <!-- Petal logo gradients -->
+        <linearGradient id="petal-amber" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#f37a0a" stop-opacity="0.95"></stop>
+          <stop offset="100%" stop-color="#e2c161" stop-opacity="0.95"></stop>
+        </linearGradient>
+        <linearGradient id="petal-violet" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ff9473" stop-opacity="0.95"></stop>
+          <stop offset="100%" stop-color="#a0b5eb" stop-opacity="0.95"></stop>
+        </linearGradient>
+        <linearGradient id="petal-mint" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#a0b5eb"></stop>
+          <stop offset="100%" stop-color="#a7fccd"></stop>
+        </linearGradient>
+        <linearGradient id="petal-wash" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#cfdaf5"></stop>
+          <stop offset="100%" stop-color="#ffffff"></stop>
+        </linearGradient>
+
+        <!-- Reusable petal logo symbol -->
+        <symbol id="petal-logo" viewBox="0 0 64 64">
+          <g transform="translate(32 32)">
+            <ellipse cx="0" cy="-12" rx="9" ry="14" fill="url(#petal-amber)" stroke="#000" stroke-width="1"></ellipse>
+            <ellipse cx="12" cy="0" rx="14" ry="9" fill="url(#petal-violet)" stroke="#000" stroke-width="1"></ellipse>
+            <ellipse cx="0" cy="12" rx="9" ry="14" fill="url(#petal-mint)" stroke="#000" stroke-width="1"></ellipse>
+            <ellipse cx="-12" cy="0" rx="14" ry="9" fill="url(#petal-wash)" stroke="#000" stroke-width="1"></ellipse>
+            <circle r="5" fill="#f6f3f1" stroke="#000" stroke-width="1"></circle>
+            <circle r="1.6" fill="#000"></circle>
+          </g>
+        </symbol>
+
+        <!-- Stakeholder icons -->
+        <symbol id="ic-learner" viewBox="0 0 32 32">
+          <path d="M16 5 L29 12 L16 19 L3 12 Z" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <path d="M8 14 V22 C8 25 12 27 16 27 C20 27 24 25 24 22 V14" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <line x1="29" y1="12" x2="29" y2="22" stroke="#000" stroke-width="1.5" stroke-linecap="round"></line>
+        </symbol>
+        <symbol id="ic-college" viewBox="0 0 32 32">
+          <rect x="4" y="13" width="24" height="14" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <path d="M2 13 L16 5 L30 13" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <rect x="10" y="18" width="4" height="9" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <rect x="18" y="18" width="4" height="9" fill="none" stroke="#000" stroke-width="1.5"></rect>
+        </symbol>
+        <symbol id="ic-employer" viewBox="0 0 32 32">
+          <rect x="5" y="10" width="22" height="17" fill="none" stroke="#000" stroke-width="1.5"></rect>
+          <path d="M12 10 V7 C12 6 13 5 14 5 H18 C19 5 20 6 20 7 V10" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <line x1="5" y1="17" x2="27" y2="17" stroke="#000" stroke-width="1.5"></line>
+          <circle cx="16" cy="17" r="1.5" fill="#000"></circle>
+        </symbol>
+        <symbol id="ic-library" viewBox="0 0 32 32">
+          <path d="M16 8 C12 5 6 5 4 6 V25 C6 24 12 24 16 27 C20 24 26 24 28 25 V6 C26 5 20 5 16 8 Z" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <line x1="16" y1="8" x2="16" y2="27" stroke="#000" stroke-width="1.5"></line>
+        </symbol>
+
+        <!-- Phase diagram icons -->
+        <symbol id="ic-readiness" viewBox="0 0 32 32">
+          <circle cx="16" cy="16" r="10" fill="none" stroke="#000" stroke-width="1.5"></circle>
+          <path d="M12 16 L15 19 L20 13" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </symbol>
+        <symbol id="ic-practice" viewBox="0 0 32 32">
+          <path d="M10 6 L22 6 L20 13 L24 13 L12 26 L15 17 L11 17 Z" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+        </symbol>
+        <symbol id="ic-portfolio" viewBox="0 0 32 32">
+          <rect x="6" y="9" width="20" height="17" fill="none" stroke="#000" stroke-width="1.5" rx="1"></rect>
+          <path d="M12 9 V6 H20 V9" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"></path>
+          <line x1="11" y1="15" x2="21" y2="15" stroke="#000" stroke-width="1.5"></line>
+          <line x1="11" y1="19" x2="17" y2="19" stroke="#000" stroke-width="1.5"></line>
+        </symbol>
+
+        <!-- Star -->
+        <symbol id="star4" viewBox="0 0 32 32">
+          <path d="M16 2 C16 11 21 16 30 16 C21 16 16 21 16 30 C16 21 11 16 2 16 C11 16 16 11 16 2 Z" fill="#f37a0a"></path>
+        </symbol>
+
+        <!-- Sticker rotating text path -->
+        <symbol id="sticker-disc" viewBox="0 0 160 160">
+          <circle cx="80" cy="80" r="74" fill="#f6f3f1" stroke="#000" stroke-width="1"></circle>
+          <circle cx="80" cy="80" r="50" fill="none" stroke="#000" stroke-width="0.5" stroke-dasharray="2 4"></circle>
+          <path id="sticker-circle" d="M 80,80 m -62,0 a 62,62 0 1,1 124,0 a 62,62 0 1,1 -124,0" fill="none"></path>
+          <text font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="3" fill="#000">
+            <textPath href="#sticker-circle" startOffset="0">EST · 2025 · AI CAPABILITY COMMONS · MADE TO BE FORKED · </textPath>
+          </text>
+        </symbol>
+
+        <!-- Hand arrow -->
+        <symbol id="hand-arrow" viewBox="0 0 32 32">
+          <path d="M5 18 C9 14 14 11 22 11" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+          <path d="M18 7 L22 11 L18 16" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </symbol>
+
+        <!-- Big stamp ring text -->
+        <symbol id="stamp-ring" viewBox="0 0 400 400">
+          <circle cx="200" cy="200" r="194" fill="none" stroke="rgba(246,243,241,0.35)" stroke-width="1"></circle>
+          <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(246,243,241,0.18)" stroke-width="1" stroke-dasharray="3 6"></circle>
+          <path id="stamp-circle" d="M 200,200 m -176,0 a 176,176 0 1,1 352,0 a 176,176 0 1,1 -352,0" fill="none"></path>
+          <text font-family="IBM Plex Mono, monospace" font-size="18" letter-spacing="6" fill="rgba(246,243,241,0.85)">
+            <textPath href="#stamp-circle" startOffset="0">FORK · FUND · RUN · TEACH · LEARN · SHIP · </textPath>
+          </text>
+        </symbol>
+      </defs>
+    </svg>
+
+
+    <!-- ===================== Header ===================== -->
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html" aria-label="AI Capability Commons home">
+          <span class="brand-mark" aria-hidden="true"><svg><use href="#petal-logo"></use></svg></span>
+          <span class="brand-name"><b>AI Capability</b> <em>Commons</em></span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a class="nav-action" href="index.html#start">Start</a>
+          <a href="index.html#curriculum">Program</a>
+          <a href="launch-kit/index.html">Kit</a>
+          <a href="research.html" aria-current="page">Evidence</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="evidence-page-hero" data-screen-label="01 Evidence hero">
+        <div class="shell reveal">
+          <p class="eyebrow">Source notes · updated May 24, 2026</p>
+          <h1>A dated evidence base for a program communities can run now.</h1>
+          <p class="lede">
+            AI Capability Commons combines the two strongest implementation bets from the research:
+            AI transition apprenticeships and practical learning infrastructure for community colleges,
+            libraries, workforce boards, nonprofits, and employers.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="launch-kit/index.html">Start the program <span class="arrow">→</span></a>
+            <a class="button secondary" href="index.html">Back to the site</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface-white" id="current-signals" data-screen-label="02 Current signals">
+        <div class="shell">
+          <div class="section-label-bar reveal">Why this can move now</div>
+          <div class="section-head reveal">
+            <p class="eyebrow">The signal is already here</p>
+            <h2>Public priorities now point at measured, community-led AI adoption.</h2>
+            <p>
+              The opportunity is not another generic AI course. It is a deployable public-good vehicle:
+              local hosts, real workflows, guided learning, measurable outcomes, and a reusable playbook.
+            </p>
+          </div>
+          <div class="source-grid">
+            <article class="source-card dark reveal" data-delay="1">
+              <span class="card-index">/01 · OpenAI</span>
+              <span class="source-value">$1B+</span>
+              <h3>Foundation priorities</h3>
+              <p>Expected 2026 investment across jobs, AI resilience, and community programs.</p>
+              <a href="https://openai.com/index/update-on-the-openai-foundation/">OpenAI update · Mar 24, 2026</a>
+            </article>
+            <article class="source-card reveal" data-delay="2">
+              <span class="card-index">/02 · Labor market</span>
+              <span class="source-value">+144%</span>
+              <h3>AI-skill postings</h3>
+              <p>National year-over-year growth in postings with AI skills, beyond technical roles.</p>
+              <a href="https://bipartisanpolicy.org/article/navigating-skills-trends-data-dashboard-analysis-april-2026/">BPC + Lightcast · May 14, 2026</a>
+            </article>
+            <article class="source-card reveal" data-delay="3">
+              <span class="card-index">/03 · Public goods</span>
+              <span class="source-value">$200M</span>
+              <h3>AI for opportunity</h3>
+              <p>Gates and Anthropic partnership focused on education, career navigation, and public-good AI.</p>
+              <a href="https://www.gatesfoundation.org/ideas/media-center/press-releases/2026/05/ai-anthropic-partnership">Gates Foundation · May 14, 2026</a>
+            </article>
+            <article class="source-card reveal" data-delay="4">
+              <span class="card-index">/04 · Apprenticeship</span>
+              <span class="source-value">2026</span>
+              <h3>Registered pathways</h3>
+              <p>Department of Labor moved to integrate AI skills into Registered Apprenticeships.</p>
+              <a href="https://www.dol.gov/newsroom/releases/eta/eta20260401">DOL · Apr 1, 2026</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section curriculum-section" id="program-implications" data-screen-label="03 Program implications">
+        <div class="shell">
+          <div class="page-section-split">
+            <div class="reveal">
+              <div class="section-label-bar" style="margin-bottom: var(--sp-24);">What the evidence says to build</div>
+              <p class="eyebrow">Design logic</p>
+              <h2>Two bets become one operating model.</h2>
+              <p class="lede" style="margin-top: var(--sp-24);">
+                Apprenticeships make the learning real. Adult-learning infrastructure makes it distributable.
+                The Commons ties them together with a shared curriculum, local host paths, and a measurement plan.
+              </p>
+            </div>
+            <div class="method-grid">
+              <article class="method-card reveal" data-delay="1">
+                <span class="card-index">01</span>
+                <h3>Ask</h3>
+                <p>Learners use AI to ask better questions, expose assumptions, and define a real workflow.</p>
+              </article>
+              <article class="method-card reveal" data-delay="2">
+                <span class="card-index">02</span>
+                <h3>Guide</h3>
+                <p>AI acts as coach, tutor, and critic, pushing productive struggle instead of answer copying.</p>
+              </article>
+              <article class="method-card reveal" data-delay="3">
+                <span class="card-index">03</span>
+                <h3>Make</h3>
+                <p>Every learner builds artifacts: process maps, prototypes, tests, demos, and role briefs.</p>
+              </article>
+              <article class="method-card reveal" data-delay="4">
+                <span class="card-index">04</span>
+                <h3>Check</h3>
+                <p>Outputs are verified against sources, stakeholder needs, privacy rules, and escalation paths.</p>
+              </article>
+              <article class="method-card reveal" data-delay="4">
+                <span class="card-index">05</span>
+                <h3>Show</h3>
+                <p>Graduates explain what worked, what failed, what saved time, and what should stay human.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface-white" id="source-table" data-screen-label="04 Sources">
+        <div class="shell">
+          <div class="section-head reveal">
+            <p class="eyebrow">Source table</p>
+            <h2>Dated claims, program implications, and links.</h2>
+            <p>These are the claims the site leans on. They should stay dated, sourced, and easy to update.</p>
+          </div>
+          <div class="evidence-table-wrap reveal">
+            <table class="evidence-table">
+              <thead>
+                <tr>
+                  <th>Signal</th>
+                  <th>What it changes in the program</th>
+                  <th>Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>OpenAI Foundation named jobs, AI resilience, and community programs as major 2026 priorities.</strong></td>
+                  <td>Frame the Commons as practical community infrastructure, not a speculative funding request.</td>
+                  <td><a href="https://openai.com/index/update-on-the-openai-foundation/">OpenAI, Mar 24, 2026</a></td>
+                </tr>
+                <tr>
+                  <td><strong>OpenAI's community fund emphasized education, economic opportunity, community organizing, healthcare, and community-led research.</strong></td>
+                  <td>Build with local hosts and leave reusable assets behind after every cohort.</td>
+                  <td><a href="https://openai.com/index/50-million-fund-to-build-with-communities/">OpenAI, Jul 18, 2025</a></td>
+                </tr>
+                <tr>
+                  <td><strong>OpenAI announced AI jobs, certifications, and a 10 million Americans by 2030 training commitment.</strong></td>
+                  <td>Connect AI fluency to labor-market infrastructure and role pathways.</td>
+                  <td><a href="https://openai.com/index/expanding-economic-opportunity-with-ai/">OpenAI, Sep 4, 2025</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Anthropic Economic Futures supports evidence on real-world AI use and economic impacts.</strong></td>
+                  <td>Measure how work changes, not just signups, attendance, or satisfaction.</td>
+                  <td><a href="https://www.anthropic.com/economic-futures?m=1">Anthropic Economic Futures</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Anthropic's January 2026 Economic Index found education and library use rising and augmentation again dominant on Claude.ai.</strong></td>
+                  <td>Teach AI as supported iteration and learning; guard automation carefully.</td>
+                  <td><a href="https://www.anthropic.com/research/anthropic-economic-index-january-2026-report">Anthropic, Jan 15, 2026</a></td>
+                </tr>
+                <tr>
+                  <td><strong>The U.S. Department of Labor launched an effort to integrate AI skills into Registered Apprenticeships.</strong></td>
+                  <td>Use apprenticeship language because it is nationally legible to employers and workforce partners.</td>
+                  <td><a href="https://www.dol.gov/newsroom/releases/eta/eta20260401">DOL, Apr 1, 2026</a></td>
+                </tr>
+                <tr>
+                  <td><strong>BPC and Lightcast reported U.S. job postings with AI skills more than doubled year over year.</strong></td>
+                  <td>Teach AI capability for everyday roles in every sector, not only technical jobs.</td>
+                  <td><a href="https://bipartisanpolicy.org/article/navigating-skills-trends-data-dashboard-analysis-april-2026/">BPC, May 14, 2026</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Gates and Anthropic announced a $200 million partnership around AI public goods.</strong></td>
+                  <td>Position the Commons as open, evidence-producing infrastructure designed around public benefit.</td>
+                  <td><a href="https://www.gatesfoundation.org/ideas/media-center/press-releases/2026/05/ai-anthropic-partnership">Gates Foundation, May 14, 2026</a></td>
+                </tr>
+                <tr>
+                  <td><strong>MIT RAISE and Georgia State expanded PATH to turn colleges into AI-skilling engines.</strong></td>
+                  <td>Keep the program hands-on, industry-aligned, and community-college-centered.</td>
+                  <td><a href="https://raise.mit.edu/news/mit-georgia-state-launch-path-ai-training-initiative/">MIT RAISE, Apr 3, 2026</a></td>
+                </tr>
+                <tr>
+                  <td><strong>The AI in Community Colleges project studies local-industry AI literacy with five community colleges.</strong></td>
+                  <td>Make the curriculum adaptable to local industries and instructors.</td>
+                  <td><a href="https://aicc.edc.org/research/">AI in CC, EDC</a></td>
+                </tr>
+                <tr>
+                  <td><strong>AACC reported 10.5 million community college learners in its 2025 fact sheet.</strong></td>
+                  <td>Community colleges remain a high-leverage distribution channel for adult and workforce learning.</td>
+                  <td><a href="https://www.aacc.nche.edu/wp-content/uploads/2025/02/AACC2025_Fact_Sheet.pdf">AACC 2025 Fact Sheet</a></td>
+                </tr>
+                <tr>
+                  <td><strong>OpenAI Study Mode and Google Guided Learning move AI learning toward guided understanding.</strong></td>
+                  <td>Use AI as a coach for productive struggle, not as a shortcut machine.</td>
+                  <td><a href="https://openai.com/index/chatgpt-study-mode/">OpenAI, Jul 29, 2025</a> · <a href="https://blog.google/products-and-platforms/products/education/guided-learning/">Google, Aug 6, 2025</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Google Research's Learn Your Way experiment generated multimodal, personalized study materials and reported an 11-point retention gain.</strong></td>
+                  <td>Each module should include explanation, example, quiz, misconception check, and workplace application.</td>
+                  <td><a href="https://research.google/blog/learn-your-way-reimagining-textbooks-with-generative-ai/">Google Research, Sep 16, 2025</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Google's April 2026 education update highlights Gemini, NotebookLM, AI literacy training, and LMS integrations.</strong></td>
+                  <td>Stay tool-agnostic but LMS-ready, with source-grounded notebooks and educator-friendly paths.</td>
+                  <td><a href="https://blog.google/products-and-platforms/products/education/ai-tools-programs-educators/">Google, Apr 13, 2026</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section evidence-section surface-ink" id="measurement" data-screen-label="05 Evidence program">
+        <div class="shell">
+          <div class="section-head reveal">
+            <p class="eyebrow">Evidence program</p>
+            <h2>A 10/10 version produces evidence other communities can use.</h2>
+            <p>
+              The first two cohorts should prove capability gain, learning quality, work usefulness, and pathway conversion.
+              After that, the program can support matched-site research with a college or lab partner.
+            </p>
+          </div>
+          <div class="measure-grid">
+            <article class="measure-card reveal" data-delay="1">
+              <span class="card-index">01</span>
+              <h3>Capability gain</h3>
+              <p>Pre/post checks on task definition, guided prompting, source checking, uncertainty, and explanation.</p>
+            </article>
+            <article class="measure-card reveal" data-delay="2">
+              <span class="card-index">02</span>
+              <h3>Learning quality</h3>
+              <p>Delayed recall, misconception checks, quiz scores, confidence movement, and facilitator notes.</p>
+            </article>
+            <article class="measure-card reveal" data-delay="3">
+              <span class="card-index">03</span>
+              <h3>Work usefulness</h3>
+              <p>Hours saved, quality review, accessibility improvement, cycle-time change, and partner usefulness score.</p>
+            </article>
+            <article class="measure-card reveal" data-delay="4">
+              <span class="card-index">04</span>
+              <h3>Pathway conversion</h3>
+              <p>Interviews, apprenticeships, internships, promotions, mentor matches, and employer repeat interest.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface-white" id="adult-learning" data-screen-label="06 Adult learning">
+        <div class="shell">
+          <div class="page-section-split">
+            <div class="reveal">
+              <div class="section-label-bar" style="margin-bottom: var(--sp-24);">Adult learning defaults</div>
+              <p class="eyebrow">What makes the curriculum work</p>
+              <h2>Respect constraints. Build confidence through real work.</h2>
+              <p class="lede" style="margin-top: var(--sp-24);">
+                The curriculum avoids treating adults like passive course completers. It uses scenario practice,
+                mentorship, source-grounded tools, local projects, and human judgment as core learning outcomes.
+              </p>
+            </div>
+            <div class="source-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+              <article class="source-card reveal" data-delay="1">
+                <span class="card-index">Scenario based</span>
+                <h3>Interactive practice</h3>
+                <p>Community college instructors favored exploratory, real-world AI activities and demonstrations.</p>
+                <a href="https://arxiv.org/abs/2511.05363">AI Literacy for Community Colleges, 2025</a>
+              </article>
+              <article class="source-card reveal" data-delay="2">
+                <span class="card-index">Non-STEM friendly</span>
+                <h3>Applied relevance</h3>
+                <p>Mixed-cohort AI learning showed value in ethics, mentoring, discussion, and workplace context.</p>
+                <a href="https://arxiv.org/abs/2604.20870">Learning AI Without a STEM Background, 2026</a>
+              </article>
+              <article class="source-card reveal" data-delay="3">
+                <span class="card-index">Adult constraints</span>
+                <h3>Designed around real lives</h3>
+                <p>Adult-learning AI work highlights goals, time constraints, confidence, and support needs.</p>
+                <a href="https://arxiv.org/abs/2605.04616">Guidelines for Adult Learning AI, 2026</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="start-section" id="start" data-screen-label="07 Start">
+        <div class="shell">
+          <div class="start-cta reveal">
+            <div>
+              <p class="eyebrow" style="color: rgba(246,243,241,0.7);">Use the evidence</p>
+              <h2>Now turn it into a local cohort.</h2>
+              <p class="lead">The evidence points to action: start with one host, one learner group, one workflow bank, and one transparent measurement plan.</p>
+              <div class="start-actions">
+                <a class="button" href="launch-kit/index.html">Start the program →</a>
+                <a class="button secondary" href="launch-kit/v1/00-start-here-program-guide.html">Host checklist</a>
+              </div>
+            </div>
+            <div class="evidence-callout">
+              <h3>Meeting posture</h3>
+              <p>We are starting with or without a check. The ask for OpenAI, Anthropic, or aligned partners is acceleration: design review, pilot introductions, tool alignment, and evidence feedback.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <div class="foot-grid">
+          <div class="foot-brand">
+            <a class="brand" href="index.html" aria-label="AI Capability Commons home">
+              <span class="brand-mark" aria-hidden="true"><svg><use href="#petal-logo"></use></svg></span>
+              <span class="brand-name"><b>AI Capability</b> <em>Commons</em></span>
+            </a>
+            <p class="brand-tagline">Evidence-informed, implementation-first, and designed to improve as communities use it.</p>
+          </div>
+          <div class="foot-col">
+            <h5>Program</h5>
+            <ul>
+              <li><a href="index.html#curriculum">Program</a></li>
+              <li><a href="index.html#paths">Paths</a></li>
+              <li><a href="launch-kit/index.html">Kit</a></li>
+              <li><a href="launch-kit/v1/12-one-day-build-sprint-runbook.html">Build sprint</a></li>
+              <li><a href="research.html">Evidence</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h5>Action</h5>
+            <ul>
+              <li><a href="launch-kit/index.html">Start kit</a></li>
+              <li><a href="launch-kit/v1/00-start-here-program-guide.html">Host checklist</a></li>
+              <li><a href="launch-kit/v1/12-one-day-build-sprint-runbook.html">Build sprint</a></li>
+              <li><a href="research.html#measurement">Evidence plan</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h5>Contact</h5>
+            <ul>
+              <li><a href="mailto:hello@aicapcommons.org">hello@aicapcommons.org</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot-base">
+          <span>© 2026 AI Capability Commons</span>
+          <span>Made for communities</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===================== Motion script ===================== -->
+    <script>
+      (function () {
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+          reveals.forEach((el) => io.observe(el));
+        } else {
+          reveals.forEach((el) => el.classList.add('in'));
+        }
+
+        // Phase filter tabs
+        const tabs = document.querySelectorAll('.phase-tab');
+        const weeks = document.querySelector('.weeks');
+        tabs.forEach((tab) => {
+          tab.addEventListener('click', () => {
+            tabs.forEach((t) => t.classList.remove('is-active'));
+            tab.classList.add('is-active');
+            const phase = tab.dataset.phase;
+            if (weeks) weeks.dataset.filter = phase;
+          });
+        });
+
+        // Animated counters
+        const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+        function animateCount(el) {
+          const target = parseFloat(el.dataset.countTo);
+          const decimals = parseInt(el.dataset.decimals || '0', 10);
+          const unit = el.querySelector('.unit');
+          const unitHTML = unit ? unit.outerHTML : '';
+          const start = performance.now();
+          const dur = 1400;
+          function tick(now) {
+            const t = Math.min(1, (now - start) / dur);
+            const raw = target * easeOut(t);
+            const v = target >= 1000 ? Math.round(raw).toLocaleString() : raw.toFixed(decimals);
+            el.innerHTML = v + unitHTML;
+            if (t < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }
+        if ('IntersectionObserver' in window) {
+          const cio = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                animateCount(e.target);
+                cio.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.4 });
+          document.querySelectorAll('[data-count-to]').forEach((el) => cio.observe(el));
+        }
+
+        // Niche switcher
+        const NICHES = {
+          learners: {
+            for: 'learners',
+            headline: "Twelve weeks, one real workflow, proof you can show a hiring manager.",
+            bullets: [
+              "20–30 person cohort · 6 hours per week · 12 weeks",
+              "One real workflow you'll own from week 4 to graduation",
+              "Portfolio, role pathway, and a named mentor for year one",
+              "No prior AI experience required to apply",
+            ],
+            cta: "Join a cohort",
+          },
+          colleges: {
+            for: 'community colleges',
+            headline: "A drop-in 12-week program that stacks to credentials you already award.",
+            bullets: [
+              "Full syllabi, lesson plans, and 6-hour facilitator training",
+              "Stackable to existing workforce and continuing-ed credentials",
+              "Outcome reporting templates ready for funders and boards",
+              "Lightweight tech requirements · no enterprise stack needed",
+            ],
+            cta: "Open the kit",
+          },
+          employers: {
+            for: 'employers',
+            headline: "Donate one real workflow. Get an apprentice and an implementation guide back.",
+            bullets: [
+              "Sponsor a workflow · an apprentice spends 12 weeks inside your team",
+              "Receive a reusable implementation guide written by the apprentice",
+              "Equity, privacy, and escalation guardrails baked into the curriculum",
+              "Optional conversion track when the apprentice's work lands",
+            ],
+            cta: "Sponsor a workflow",
+          },
+          libraries: {
+            for: 'libraries & nonprofits',
+            headline: "Run cohorts in branches and community spaces. No enterprise stack.",
+            bullets: [
+              "Designed for branches, community spaces, and small staff teams",
+              "Lightweight tech · works on consumer laptops and free tools",
+              "A resource shelf and office hours for non-cohort drop-ins",
+              "Recurring monthly office hours from the network of pilot sites",
+            ],
+            cta: "Host a cohort",
+          },
+        };
+
+        const niches = document.querySelectorAll('.niche-tab');
+        const kitPane = document.querySelector('.kit-pane');
+        function applyNiche(key) {
+          const data = NICHES[key]; if (!data || !kitPane) return;
+          kitPane.querySelector('[data-niche-text="for"]').textContent = data.for;
+          kitPane.querySelector('[data-niche-text="headline"]').textContent = data.headline;
+          kitPane.querySelector('[data-niche-text="cta"]').textContent = data.cta;
+          const list = kitPane.querySelector('[data-niche-list="bullets"]');
+          list.innerHTML = '';
+          data.bullets.forEach((b) => {
+            const li = document.createElement('li');
+            li.textContent = b;
+            list.appendChild(li);
+          });
+          // gentle fade-in on swap
+          kitPane.classList.remove('swap');
+          void kitPane.offsetWidth;
+          kitPane.classList.add('swap');
+        }
+        niches.forEach((tab) => {
+          tab.addEventListener('click', () => {
+            niches.forEach((t) => t.classList.remove('is-active'));
+            tab.classList.add('is-active');
+            applyNiche(tab.dataset.niche);
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
