@@ -563,7 +563,7 @@ function htmlPage({ title, eyebrow, intro, body, extraHead = "", current = "kit"
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${esc(title)} | AI Capability Commons</title>
-    <link rel="stylesheet" href="../kit.css?v=polish-13">
+    <link rel="stylesheet" href="../kit.css?v=polish-16">
     ${extraHead}
   </head>
   <body>
@@ -704,7 +704,7 @@ fs.writeFileSync(
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Launch Kit | AI Capability Commons</title>
-    <link rel="stylesheet" href="kit.css?v=polish-13">
+    <link rel="stylesheet" href="kit.css?v=polish-16">
   </head>
   <body>
     ${siteHeader({ level: "kit", current: "kit" })}
@@ -1377,7 +1377,7 @@ const redirectMap = {
 for (const [file, target] of Object.entries(redirectMap)) {
   fs.writeFileSync(
     path.join(root, file),
-    `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex"><title>Redirecting | AI Capability Commons</title><link rel="stylesheet" href="claude.css?v=polish-13"></head><body><main class="shell" style="padding:80px 40px"><p class="eyebrow">Redirecting</p><h1>Opening the current AI Capability Commons materials.</h1><p class="lede">If you are not redirected, <a href="${target}">continue here</a>.</p></main></body></html>`
+    `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex"><title>Redirecting | AI Capability Commons</title><link rel="stylesheet" href="claude.css?v=polish-16"></head><body><main class="shell" style="padding:80px 40px"><p class="eyebrow">Redirecting</p><h1>Opening the current AI Capability Commons materials.</h1><p class="lede">If you are not redirected, <a href="${target}">continue here</a>.</p></main></body></html>`
   );
 }
 
