@@ -563,7 +563,7 @@ function htmlPage({ title, eyebrow, intro, body, extraHead = "", current = "kit"
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${esc(title)} | The AI Kit</title>
-    <link rel="stylesheet" href="../kit.css?v=polish-17">
+    <link rel="stylesheet" href="../kit.css?v=polish-18">
     ${extraHead}
   </head>
   <body>
@@ -704,7 +704,7 @@ fs.writeFileSync(
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Launch Kit | The AI Kit</title>
-    <link rel="stylesheet" href="kit.css?v=polish-17">
+    <link rel="stylesheet" href="kit.css?v=polish-18">
   </head>
   <body>
     ${siteHeader({ level: "kit", current: "kit" })}
@@ -725,16 +725,6 @@ fs.writeFileSync(
           ${card("4. Measure outcomes", "<p>Track capability gain, learning quality, work usefulness, and pathway conversion from day one.</p><p><a href=\"v1/07-measurement-and-rubrics.html\">Open measurement →</a></p>")}
           ${card("5. Use the full library", "<p>Facilitator handbook, learner workbook, project bank, workflow donation, comms, demo day, safety, and templates.</p><p><a href=\"#full-library\">Browse library →</a></p>")}
         </div>
-      </section>
-      <section>
-        <h2>What a host needs</h2>
-        ${table(["Need", "Minimum"], [
-          ["Learners", "20 to 30 adults, students, frontline workers, job seekers, or staff."],
-          ["Facilitation", "One facilitator pair and one program lead."],
-          ["Tools", "One AI assistant, shared workspace, spreadsheet tracker, and meeting room or video link."],
-          ["Projects", "Three to six real workflows from employers or community organizations."],
-          ["Proof", "A baseline survey, portfolio rubric, project tracker, and demo day date."],
-        ])}
       </section>
       <section id="full-library">
         <h2>Full library</h2>
@@ -1377,7 +1367,7 @@ const redirectMap = {
 for (const [file, target] of Object.entries(redirectMap)) {
   fs.writeFileSync(
     path.join(root, file),
-    `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex"><title>Redirecting | The AI Kit</title><link rel="stylesheet" href="claude.css?v=polish-17"></head><body><main class="shell" style="padding:80px 40px"><p class="eyebrow">Redirecting</p><h1>Opening The AI Kit materials.</h1><p class="lede">If you are not redirected, <a href="${target}">continue here</a>.</p></main></body></html>`
+    `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex"><title>Redirecting | The AI Kit</title><link rel="stylesheet" href="claude.css?v=polish-18"></head><body><main class="shell" style="padding:80px 40px"><p class="eyebrow">Redirecting</p><h1>Opening The AI Kit materials.</h1><p class="lede">If you are not redirected, <a href="${target}">continue here</a>.</p></main></body></html>`
   );
 }
 
