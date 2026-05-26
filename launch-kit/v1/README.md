@@ -1,6 +1,6 @@
-# AI Capability Commons Launch Kit v1
+# The AI Kit Launch Kit v1
 
-This folder contains the public launch kit for running a 12-week AI Capability Commons cohort.
+This folder contains the public launch kit for running a 12-week cohort using The AI Kit.
 
 ## Start here
 

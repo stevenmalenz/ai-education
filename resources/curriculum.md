@@ -1,4 +1,4 @@
-# AI Capability Commons Curriculum
+# The AI Kit Curriculum
 
 Version: 1.0  
 Default cohort: 12 weeks, 90 minutes per week, optional 60-minute practice lab  

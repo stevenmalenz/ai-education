@@ -1,6 +1,6 @@
-# AI Capability Commons
+# The AI Kit
 
-AI Capability Commons is a public, forkable 12-week program that helps communities turn AI access into practical workplace capability through trusted local institutions, real workflows, portfolio proof, and apprenticeship handoff.
+The AI Kit is a public, forkable 12-week program that helps communities turn AI access into practical workplace capability through trusted local institutions, real workflows, portfolio proof, and apprenticeship handoff.
 
 ## Current public pages
 
@@ -30,7 +30,7 @@ The launch kit includes:
 - Project bank: chat to skills to agents
 - CSV templates and a 12-week calendar file
 
-Downloadable zip: `launch-kit/downloads/ai-capability-commons-launch-kit-v1.zip`
+Downloadable zip: `launch-kit/downloads/the-ai-kit-launch-kit-v1.zip`
 
 ## Local Preview
 

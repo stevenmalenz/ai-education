@@ -1,4 +1,4 @@
-# AI Capability Commons Facilitator Guide
+# The AI Kit Facilitator Guide
 
 ## Facilitator Stance
 

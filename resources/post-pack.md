@@ -1,4 +1,4 @@
-# AI Capability Commons Post Pack
+# The AI Kit Post Pack
 
 ## Flagship Launch Post
 
@@ -6,7 +6,7 @@ AI is changing work faster than most institutions can redesign programs.
 
 So we built the program now.
 
-AI Capability Commons is a 12-week, community-run curriculum that helps adult learners, community college students, nonprofit staff, job seekers, and frontline teams build practical AI capability through real work.
+The AI Kit is a 12-week, community-run curriculum that helps adult learners, community college students, nonprofit staff, job seekers, and frontline teams build practical AI capability through real work.
 
 The goal is not to make everyone a machine learning engineer.
 
@@ -47,7 +47,7 @@ Start here: [link]
 
 We built a ready-to-run AI capability program for communities.
 
-AI Capability Commons is a 12-week curriculum and launch kit for adult learners, community colleges, libraries, workforce boards, nonprofits, and employers.
+The AI Kit is a 12-week curriculum and launch kit for adult learners, community colleges, libraries, workforce boards, nonprofits, and employers.
 
 It includes:
 
@@ -77,7 +77,7 @@ They need people who can improve real workflows with judgment:
 - Reporting with caveats
 - Documentation that another human can trust
 
-AI Capability Commons gives employers a simple way to participate.
+The AI Kit gives employers a simple way to participate.
 
 Bring one recurring workflow. Work with a learner. Review the demo. Use the role brief to sponsor an apprenticeship or entry-level AI-enabled role.
 
@@ -93,7 +93,7 @@ Not because every student needs to become technical.
 
 Because every local economy will need people who can use AI responsibly in operations, advising, communications, service delivery, data, and small-business workflows.
 
-AI Capability Commons is built for that middle layer:
+The AI Kit is built for that middle layer:
 
 - 12-week cohort
 - Adult-learning friendly
@@ -106,7 +106,7 @@ Curriculum and launch kit: [link]
 
 ## Newsletter Blurb
 
-AI Capability Commons is a new open program for communities that want to help adults and frontline teams build practical AI skills through real work.
+The AI Kit is a new open program for communities that want to help adults and frontline teams build practical AI skills through real work.
 
 The 12-week cohort model is designed for community colleges, libraries, workforce boards, nonprofits, and local employers. Participants learn responsible AI use, verification, workflow design, accessibility, and portfolio presentation. Each learner completes a project tied to a real local workflow.
 

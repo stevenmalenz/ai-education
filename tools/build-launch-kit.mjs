@@ -542,9 +542,9 @@ function siteHeader({ level = "root", current = "" } = {}) {
   const currentAttr = (key) => (current === key ? ' aria-current="page"' : "");
   return `<header class="site-header">
       <div class="nav-shell">
-        <a class="brand" href="${paths.home}" aria-label="AI Capability Commons home">
+        <a class="brand" href="${paths.home}" aria-label="The AI Kit home">
           ${brandMark()}
-          <span class="brand-name"><b>AI Capability</b> <em>Commons</em></span>
+          <span class="brand-name"><b>The AI</b> <em>Kit</em></span>
         </a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a class="nav-action" href="${paths.start}">Start</a>
@@ -562,8 +562,8 @@ function htmlPage({ title, eyebrow, intro, body, extraHead = "", current = "kit"
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>${esc(title)} | AI Capability Commons</title>
-    <link rel="stylesheet" href="../kit.css?v=polish-16">
+    <title>${esc(title)} | The AI Kit</title>
+    <link rel="stylesheet" href="../kit.css?v=polish-17">
     ${extraHead}
   </head>
   <body>
@@ -670,7 +670,7 @@ tr:last-child td { border-bottom: none; }
 .button:focus-visible, .nav-links a:focus-visible, .artifact-list a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 @media (max-width: 1100px) { .five { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 820px) { .two,.three,.four,.five { grid-template-columns: 1fr; } .nav-shell { padding: 16px 24px; gap: 10px; align-items: flex-start; } .nav-links { width: 100%; justify-content: flex-start; gap: 6px; } .nav-links a { font-size: 12px; padding: 7px 10px; border: 1px solid rgba(0,0,0,.12); } .nav-links a[aria-current="page"] { padding: 7px 10px; } .nav-links a.nav-action { padding: 7px 12px; margin-left: 0; } .doc { padding: 40px 24px 72px; } }
-@media (max-width: 430px) { .brand-mark { width: 30px; height: 30px; } .brand-name { font-size: 14px; } .brand-name em { display: none; } }
+@media (max-width: 430px) { .brand-mark { width: 30px; height: 30px; } .brand-name { font-size: 14px; } }
 @media print { .site-header { position: static; } body { background: white; } .card,.session,.callout,.table-wrap { box-shadow: none; } a { text-decoration: none; } }
 `;
 
@@ -703,8 +703,8 @@ fs.writeFileSync(
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Launch Kit | AI Capability Commons</title>
-    <link rel="stylesheet" href="kit.css?v=polish-16">
+    <title>Launch Kit | The AI Kit</title>
+    <link rel="stylesheet" href="kit.css?v=polish-17">
   </head>
   <body>
     ${siteHeader({ level: "kit", current: "kit" })}
@@ -712,9 +712,9 @@ fs.writeFileSync(
       <section class="doc-hero">
         <p class="eyebrow">Start here</p>
         <h1>Start here. Run the 12-week cohort.</h1>
-        <p>The public operating kit for AI Capability Commons. Confirm the host checklist, use the 1-day build sprint as an optional on-ramp, then run the cohort with clear sessions, projects, tools, and measurement.</p>
+        <p>The public operating kit for The AI Kit. Confirm the host checklist, use the 1-day build sprint as an optional on-ramp, then run the cohort with clear sessions, projects, tools, and measurement.</p>
         <a class="button" href="v1/00-start-here-program-guide.html">Start here: run this program</a>
-        <a class="button secondary" href="downloads/ai-capability-commons-launch-kit-v1.zip">Download full kit (.zip)</a>
+        <a class="button secondary" href="downloads/the-ai-kit-launch-kit-v1.zip">Download full kit (.zip)</a>
       </section>
       <section id="start-here">
         <h2>The simple path</h2>
@@ -763,7 +763,7 @@ fs.writeFileSync(
         ["Evidence", "Baseline survey, portfolio rubric, project tracker, and a demo day date before the cohort starts."],
       ])}
       <section class="grid two">
-        ${card("Program promise", `<p>AI Capability Commons turns AI access into practical workplace capability through trusted local institutions, real workflows, portfolio proof, and apprenticeship handoff.</p>`)}
+        ${card("Program promise", `<p>The AI Kit turns AI access into practical workplace capability through trusted local institutions, real workflows, portfolio proof, and apprenticeship handoff.</p>`)}
         ${card("Default cohort", list(["24 to 30 learners", "12 weeks", "Three 60-minute live sessions per week", "Three hours of self-directed practice per week", "Three to six workflow partners", "One demo day and public cohort report"]))}
       </section>
       <h2>The learning arc: chat to skills to agents</h2>
@@ -1022,7 +1022,7 @@ fs.writeFileSync(
         ["Week 12", "Attend demo or review recording.", "Usefulness score and next-step recommendation."],
       ])}
       <h2>Partner email</h2>
-      <div class="card"><p><strong>Subject:</strong> Donate one workflow to help local learners build practical AI capability</p><p>We are running a 12-week AI Capability Commons cohort for adult learners. We are asking selected partners to donate one safe, recurring workflow that a learner can map, improve, test, and return as an implementation guide. This is not free consulting and it is not automation theater. It is a structured learning project with privacy guardrails, human review, and a demo day. Would you be open to a 30-minute scoping call?</p></div>
+      <div class="card"><p><strong>Subject:</strong> Donate one workflow to help local learners build practical AI capability</p><p>We are running a 12-week cohort using The AI Kit for adult learners. We are asking selected partners to donate one safe, recurring workflow that a learner can map, improve, test, and return as an implementation guide. This is not free consulting and it is not automation theater. It is a structured learning project with privacy guardrails, human review, and a demo day. Would you be open to a 30-minute scoping call?</p></div>
     `,
   })
 );
@@ -1064,13 +1064,13 @@ fs.writeFileSync(
     intro: "Copy, adapt, and use these messages to recruit learners, partners, mentors, and demo day guests.",
     body: `
       <h2>Learner invite</h2>
-      <div class="card"><p><strong>Headline:</strong> Learn real AI through real work.</p><p>AI Capability Commons is a 12-week community cohort for adults, students, job seekers, nonprofit staff, and frontline teams. You do not need a technical background. You will learn how to use AI responsibly, improve one real workflow, verify your work, and graduate with a portfolio project you can show.</p></div>
+      <div class="card"><p><strong>Headline:</strong> Learn real AI through real work.</p><p>The AI Kit is a 12-week community cohort for adults, students, job seekers, nonprofit staff, and frontline teams. You do not need a technical background. You will learn how to use AI responsibly, improve one real workflow, verify your work, and graduate with a portfolio project you can show.</p></div>
       <h2>Launch announcement</h2>
-      <div class="card"><p>We are launching a local AI Capability Commons cohort: a practical 12-week program where learners build responsible AI capability through real community and employer workflows. The goal is not hype or replacement. The goal is capability, confidence, portfolio proof, and local pathways into better work.</p></div>
+      <div class="card"><p>We are launching a local cohort using The AI Kit: a practical 12-week program where learners build responsible AI capability through real community and employer workflows. The goal is not hype or replacement. The goal is capability, confidence, portfolio proof, and local pathways into better work.</p></div>
       <h2>Weekly share prompts</h2>
       ${table(["Week", "Share prompt"], weeks.filter((w) => w.n > 0).map((w) => [`Week ${w.n}`, `This week I learned ${w.title.toLowerCase()}. The useful thing I can now show is: [artifact]. The thing I am still checking is: [risk or question].`]))}
       <h2>Graduation post</h2>
-      <div class="card"><p>I completed AI Capability Commons, a 12-week cohort focused on practical, responsible AI capability. My project improved [workflow] for [user/community]. I used AI to [assist], checked it by [verification], and kept humans responsible for [decision]. The biggest thing I learned: [lesson].</p></div>
+      <div class="card"><p>I completed The AI Kit, a 12-week cohort focused on practical, responsible AI capability. My project improved [workflow] for [user/community]. I used AI to [assist], checked it by [verification], and kept humans responsible for [decision]. The biggest thing I learned: [lesson].</p></div>
     `,
   })
 );
@@ -1100,7 +1100,7 @@ fs.writeFileSync(
         ["Usefulness score", "Would you use, sponsor, interview, or mentor based on this work?"],
       ])}
       <h2>Certificate language</h2>
-      <div class="card"><p>This certifies that [Name] completed the AI Capability Commons 12-week cohort and demonstrated practical AI capability through a real workflow portfolio project, including responsible tool use, source checking, human review, and public or private presentation of evidence.</p></div>
+      <div class="card"><p>This certifies that [Name] completed The AI Kit's 12-week cohort and demonstrated practical AI capability through a real workflow portfolio project, including responsible tool use, source checking, human review, and public or private presentation of evidence.</p></div>
     `,
   })
 );
@@ -1320,16 +1320,16 @@ const icsEvents = [];
 for (const w of weeks.filter((x) => x.n > 0)) {
   for (let s = 0; s < 3; s++) {
     const [start, end] = icsDate((w.n - 1) * 7 + s * 2);
-    icsEvents.push(`BEGIN:VEVENT\nUID:aicc-w${w.n}-s${s + 1}@aicapcommons.org\nDTSTAMP:20260524T120000Z\nDTSTART:${start}\nDTEND:${end}\nSUMMARY:AI Capability Commons W${w.n} Session ${sessionTypes[s][0]} - ${w.title}\nDESCRIPTION:${sessionTypes[s][1]} session. Artifact: ${w.artifact}\nEND:VEVENT`);
+    icsEvents.push(`BEGIN:VEVENT\nUID:the-ai-kit-w${w.n}-s${s + 1}@theaikit.local\nDTSTAMP:20260524T120000Z\nDTSTART:${start}\nDTEND:${end}\nSUMMARY:The AI Kit W${w.n} Session ${sessionTypes[s][0]} - ${w.title}\nDESCRIPTION:${sessionTypes[s][1]} session. Artifact: ${w.artifact}\nEND:VEVENT`);
   }
 }
-fs.writeFileSync(path.join(v1, "12-week-cohort-calendar.ics"), `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//AI Capability Commons//Launch Kit V1//EN\n${icsEvents.join("\n")}\nEND:VCALENDAR\n`);
+fs.writeFileSync(path.join(v1, "12-week-cohort-calendar.ics"), `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//The AI Kit//Launch Kit V1//EN\n${icsEvents.join("\n")}\nEND:VCALENDAR\n`);
 
 fs.writeFileSync(
   path.join(v1, "README.md"),
-  `# AI Capability Commons Launch Kit v1
+  `# The AI Kit Launch Kit v1
 
-This folder contains the public launch kit for running a 12-week AI Capability Commons cohort.
+This folder contains the public launch kit for running a 12-week cohort using The AI Kit.
 
 ## Start here
 
@@ -1349,7 +1349,7 @@ fs.writeFileSync(
   path.join(root, "LICENSE.md"),
   `# License
 
-AI Capability Commons materials are released under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0), unless otherwise noted.
+The AI Kit materials are released under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0), unless otherwise noted.
 
 You may share and adapt the materials for any purpose, including community and commercial use, as long as you provide attribution and distribute adaptations under the same license.
 
@@ -1377,13 +1377,13 @@ const redirectMap = {
 for (const [file, target] of Object.entries(redirectMap)) {
   fs.writeFileSync(
     path.join(root, file),
-    `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex"><title>Redirecting | AI Capability Commons</title><link rel="stylesheet" href="claude.css?v=polish-16"></head><body><main class="shell" style="padding:80px 40px"><p class="eyebrow">Redirecting</p><h1>Opening the current AI Capability Commons materials.</h1><p class="lede">If you are not redirected, <a href="${target}">continue here</a>.</p></main></body></html>`
+    `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex"><title>Redirecting | The AI Kit</title><link rel="stylesheet" href="claude.css?v=polish-17"></head><body><main class="shell" style="padding:80px 40px"><p class="eyebrow">Redirecting</p><h1>Opening The AI Kit materials.</h1><p class="lede">If you are not redirected, <a href="${target}">continue here</a>.</p></main></body></html>`
   );
 }
 
-const readme = `# AI Capability Commons
+const readme = `# The AI Kit
 
-AI Capability Commons is a public, forkable 12-week program that helps communities turn AI access into practical workplace capability through trusted local institutions, real workflows, portfolio proof, and apprenticeship handoff.
+The AI Kit is a public, forkable 12-week program that helps communities turn AI access into practical workplace capability through trusted local institutions, real workflows, portfolio proof, and apprenticeship handoff.
 
 ## Current public pages
 
@@ -1413,7 +1413,7 @@ The launch kit includes:
 - Project bank: chat to skills to agents
 - CSV templates and a 12-week calendar file
 
-Downloadable zip: \`launch-kit/downloads/ai-capability-commons-launch-kit-v1.zip\`
+Downloadable zip: \`launch-kit/downloads/the-ai-kit-launch-kit-v1.zip\`
 
 ## Local Preview
 
@@ -1425,7 +1425,7 @@ CC BY-SA 4.0 unless otherwise noted.
 `;
 fs.writeFileSync(path.join(root, "README.md"), readme);
 
-const zipPath = path.join(downloads, "ai-capability-commons-launch-kit-v1.zip");
+const zipPath = path.join(downloads, "the-ai-kit-launch-kit-v1.zip");
 try {
   if (fs.existsSync(zipPath)) fs.rmSync(zipPath);
   execFileSync("zip", ["-rq", zipPath, "index.html", "v1", "kit.css"], { cwd: kitRoot });

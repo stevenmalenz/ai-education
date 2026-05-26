@@ -2,7 +2,7 @@
 
 ## One-Sentence Frame
 
-AI Capability Commons is a ready-to-run, 12-week community program that turns AI access into practical workplace capability for adult learners and frontline institutions.
+The AI Kit is a ready-to-run, 12-week community program that turns AI access into practical workplace capability for adult learners and frontline institutions.
 
 ## Meeting Posture
 
